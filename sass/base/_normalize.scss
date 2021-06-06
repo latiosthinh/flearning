@@ -1,0 +1,40 @@
+@font-face {
+	font-family: 'BrandonText';
+	src: url( 'fonts/BrandonText-Regular.otf' ) format( 'opentype' ),
+		url('fonts/BrandonText-Regular.woff2') format('woff2'),
+        url('fonts/BrandonText-Regular.woff') format('woff'),
+        url('fonts/BrandonText-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'BrandonText';
+	src: url( 'fonts/BrandonText-Bold.otf' ) format( 'opentype' ),
+		url('fonts/BrandonText-Bold.woff2') format('woff2'),
+        url('fonts/BrandonText-Bold.woff') format('woff'),
+        url('fonts/BrandonText-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-display: swap;
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+:root {
+	--font-main: 'BrandonText';
+	--font-sans: 'Open Sans',   sans-serif;
+
+	--color-base   : #F7941E;
+	--color-black  : #474747;
+	--color-white  : #ffffff;
+	--color-grey   : #A0A0A0;
+
+	--animate-duration: 1s;
+	--animate-delay: 1s;
+	--animate-repeat: 1;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}

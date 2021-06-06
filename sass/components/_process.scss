@@ -1,0 +1,166 @@
+.process-banner {
+	padding: 0 0 80px;
+
+	.row {
+		@media all and (min-width:1100px) {
+			align-items: center;
+		}
+
+		p {
+			margin: 24px 0 55px;
+		}
+	}
+}
+
+.process-find-out {
+	padding: 80px 0;
+
+	h2 {
+		margin-bottom: 40px;
+	}
+
+	.content {
+		margin-top: 40px;
+		margin-bottom: 80px;
+
+		@media all and (min-width:1100px) {
+			align-items: center;
+		}
+
+		&:nth-child(2n) {
+			@media all and (min-width:1100px) {
+				flex-direction: row-reverse;
+			}
+		}
+
+		img {
+			border-radius: 40px;
+		}
+	}
+}
+
+.process-step {
+	margin-bottom: 80px;
+
+	.col-12 {
+		margin-bottom: 80px;
+	}
+
+	.tab-nav {
+		display: flex;
+		justify-content: center;
+
+		button {
+			background: transparent;
+			border: 0;
+			outline: 0;
+			margin: 0 7%;
+			font-weight: 700;
+			color: #A0A0A0;
+
+			&.active, &:hover {
+				color: var(--color-base);
+				@extend %active;
+			}
+		}
+	}
+
+	.tab-panel {
+		display: none;
+
+		&.active {
+			display: flex;
+		}
+	}
+
+	.item {
+		background: #fff;
+		@extend %shadow;
+		border-radius: 40px;
+		padding: 8%;
+		overflow: hidden;
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: -8px;
+			right: -8px;
+			width: 64px;
+			height: 64px;
+			background: #e5e5e5;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 16px;
+
+			@media all and (max-width:1450px) {
+				width: 50px;
+				height: 50px;
+			}
+		}
+	}
+
+	.number {
+		position: absolute;
+		top: 16px;
+		right: 22px;
+		font-weight: 700;
+
+		@media all and (max-width:1450px) {
+			top: 12px;
+			right: 18px;
+		}
+	}
+
+	img {
+		width: 80px;
+		margin-bottom: 40px;
+	}
+
+	p {
+		margin-top: 30px;
+		margin-bottom: 0;
+	}
+}
+
+.process-team {
+	padding: 80px 0;
+
+	.h2 {
+		margin-bottom: 40px;
+	}
+
+	.item {
+		margin: 40px 0;
+		background-color: #fff;
+		border-radius: 40px;
+		overflow: hidden;
+		text-align: center;
+	}
+}
+
+.process-contact {
+	padding: 80px 0;
+	
+	.content {
+		background: var(--color-base);
+		border-radius: 48px;
+		padding: 8%;
+		position: relative;
+	}
+
+	.h1 {
+		margin-bottom: 50px;
+		color: #fff;
+	}
+
+	img {
+		position: absolute;
+		width: 300px;
+		object-fit: contain;
+		right: 7%;
+		bottom: 0;
+		transform: translateY(50%);
+	}
+}
