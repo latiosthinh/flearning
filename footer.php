@@ -71,7 +71,7 @@
 							</a>
 						</div>
 
-						<div class="menu-term dflex aic jcsb">
+						<div class="menu-term dflex aic jcsb flex-wrap">
 							<p class="site-info">&copy; F.Learning <?= date( 'Y' ) ?></p>
 
 							<a href="#">Terms</a>
@@ -103,6 +103,9 @@
 	<div class="blob blob-13"></div>
 	<div class="blob blob-14"></div>
 </section>
+
+<div class="popup"></div>
+<div class="popup-bg popup-close"></div>
 
 </body>
 </html>

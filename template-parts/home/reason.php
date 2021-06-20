@@ -1,8 +1,8 @@
-<section class="home-reason">
+<section class="home-reason page-block">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<p class="h2 bold">Reasons people<br>count on us</p>
+				<?= rwmb_meta( 'reason_title', null, get_queried_object_id() ) ?>
 			</div>
 
 			<div class="col-6 image">
@@ -17,7 +17,9 @@
 				?>
 
 				<div class="item">
-					<img src="<?= wp_get_attachment_url( $i['icon'] ) ?>">
+					<div class="icon-wrapper">
+						<img style="width:<?= $i['width'] ?>px;height:<?= $i['height'] ?>px" src="<?= wp_get_attachment_url( $i['icon'] ) ?>">
+					</div>
 
 					<p class="h4 bold"><?= $i['title'] ?></p>
 					<p><?= $i['description'] ?></p>
@@ -29,15 +31,17 @@
 	</div>
 </section>
 
-<section>
+<section class="page-block">
 	<div class="container">
 		<div class="home-reason__cta dflex flex-column aic">
-			<p class="h1 clw bold tac">
-			Want to empower your project? <br>
-			Start within 24 hours!
-			</p>
+			<div style="color:#fff;margin-bottom:60px;">
+				<?= rwmb_meta( 'reason_contact', null, get_queried_object_id() ) ?>
+			</div>
 
-			<a class="button-3" href="<?= home_url( '/contact' ) ?>">Get in touch</a>
+			<a class="button-3"
+				href="<?= rwmb_meta( 'reason_contact_url', null, get_queried_object_id() ) ?>">
+				<?= rwmb_meta( 'reason_contact_text', null, get_queried_object_id() ) ?>
+			</a>
 		</div>
 	</div>
 </section>

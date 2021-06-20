@@ -36,11 +36,11 @@
 
 				<a class="button-1 font-brandon" href="<?= get_permalink( get_page_by_path( 'contact' ) ) ?>">Contact us</a>
 			</div>
-		</div>
 
-		<button id="nav-control">
-			<span></span>
-			<span></span>
-			<span></span>
-		</button>
+			<button id="nav-control">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+		</div>
 	</header>

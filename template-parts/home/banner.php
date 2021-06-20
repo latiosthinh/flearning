@@ -1,20 +1,14 @@
 <section class="home-banner">
 	<div class="container">
 		<div class="row">
+
 			<div class="col-5">
-				<p class="orange ttu font-sans">EXPERT IN ANIMATION</p>
-
-				<h2 class="h1">
-					Empower<br>
-					Any Projects <br>
-					With Animation.
-				</h2>
-
-				<p>We create tailor-made products which delight our customers</p>
+				<?= rwmb_meta( 'banner_title', null, get_queried_object_id() ) ?>
 
 				<div class="cta">
-					<a href="#" class="button-1">Talk to our experts</a>
-					<a href="#" class="button-2">Get freebies</a>
+					<a href="<?= rwmb_meta( 'banner_button_url', null, get_queried_object_id() ) ?>" class="button-1">
+						<?= rwmb_meta( 'banner_button_text', null, get_queried_object_id() ) ?>
+					</a>
 				</div>
 
 				<p class="scroll dflex aic">
@@ -24,8 +18,9 @@
 			</div>
 
 			<div class="col-7 video">
+				<?php $video = rwmb_meta( 'banner_video', null, get_queried_object_id() ); ?>
 				<img src="<?= rwmb_meta( 'banner', null, get_queried_object_id() )[ 'full_url' ] ?>">
-				<button class="play" data-video="<?= rwmb_meta( 'video_url', null, get_queried_object_id() ) ?>">
+				<button class="play popup-open" data-popup="<?= $video ?>">
 					<img src="<?= NOVUS_IMG . '/play-1.svg' ?>">
 				</button>
 			</div>

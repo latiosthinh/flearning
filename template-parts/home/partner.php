@@ -1,6 +1,6 @@
-<section class="home-partner">
+<section class="home-partner page-block">
 	<div class="container">
-		<p class="tac">Our hundred partners around the world</p>
+		<h3 class="tac"><?= rwmb_meta( 'partner_title', null, get_queried_object_id() ) ?></h3>
 
 		<div class="splide partner-slider">
 			<div class="splide__track">

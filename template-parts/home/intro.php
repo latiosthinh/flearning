@@ -1,12 +1,8 @@
-<section class="home-intro">
+<section class="home-intro page-block">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<p class="orange ttu tac">WHAT WE DO</p>
-				<p class="h2 tac bold">
-					We help the process<br>
-					be less time-consuming and easy to deliver
-				</p>
+				<?= rwmb_meta( 'intro_title', null, get_queried_object_id() ); ?>
 			</div>
 
 			<?php

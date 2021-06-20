@@ -3,25 +3,9 @@
  * Template name: Faqs
  */
 get_header();
+
+get_template_part( 'template-parts/layout' );
 ?>
-
-<section class="faqs-banner">
-	<div class="container">
-		<div class="row">
-			<div class="col-6 faqs-banner__content">
-				<h1 class="h1">
-				Frequently <br>
-				Asked Questions
-				</h1>
-				<p>Have more question? Contact us to discover futher.</p>
-			</div>
-
-			<div class="col-6">
-				<img src="<?= NOVUS_IMG . '/faq.gif' ?>">
-			</div>
-		</div>
-	</div>
-</section>
 
 <section class="faqs-list">
 	<div class="container">
@@ -33,7 +17,7 @@ get_header();
 
 			<div class="col-12">
 				<div class="faq-block">
-					<h2 class="control"><?= $b[ 'title' ] ?></h2>
+					<h4 class="control"><?= $b[ 'title' ] ?></h4>
 					<div class="panel">
 						<?= $b[ 'detail' ] ?>
 					</div>

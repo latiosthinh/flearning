@@ -48,6 +48,34 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		)
 	}
 
+	// Popup
+	const openPopup = document.querySelectorAll( '.popup-open' )
+	const closePopup = document.querySelector( '.popup-close' )
+	const popup = document.querySelector( '.popup' )
+	
+	const dataSrc = 'https://www.youtube.com/embed/'
+
+	if ( popup ) {
+		openPopup.forEach( e => {
+			e.addEventListener( 'click', function() {
+				popup.innerHTML = `<iframe loading="lazy" width="600" height="400"
+									src="${dataSrc + this.dataset.popup}"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen>
+								</iframe>`;
+
+				popup.classList.add( 'active' )
+				closePopup.classList.add( 'active' )
+			} )
+		});
+
+		closePopup.addEventListener( 'click', function() {
+			popup.classList.remove( 'active' )
+			this.classList.remove( 'active' )
+		} )
+	}
+
 	// Accordion
 	const accordions = document.querySelectorAll( '.accordions' );
 	if ( accordions ) {
@@ -79,10 +107,20 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		} )
 	}
 
-	if ( document.querySelector( '.splide' ) ) {
-		new Splide( '.splide', {
+	// if ( document.querySelector( '.splide' ) ) {
+	// 	new Splide( '.splide', {
+	// 		type      : 'loop',
+	// 		pagination: false
+	// 	} ).mount();
+	// }
+
+	if ( document.querySelector( '.video-slider' ) ) {
+		new Splide( '.video-slider', {
 			type      : 'loop',
-			pagination: false
+			pagination: false,
+			breakpoints: {
+				pagination: true
+			}
 		} ).mount();
 	}
 
@@ -95,12 +133,22 @@ document.addEventListener( 'DOMContentLoaded', function() {
 			interval  : 3000,
 			arrows    : false,
 			perPage   : 6,
-			gap       : '7%',
+			gap       : '5%',
 			breakpoints: {
 				991: {
 					perPage   : 2,
 				},
 			}
+		} ).mount();
+	}
+
+	if ( document.querySelector( '.ebook-slider' ) ) {
+		const ebookSlider = document.querySelector( '.ebook-slider' );
+		const splide = new Splide( ebookSlider, {
+			type      : 'loop',
+			pagination: false,
+			autoplay  : true,
+			interval  : 3000,
 		} ).mount();
 	}
 

@@ -1,17 +1,3 @@
-.process-banner {
-	padding: 0 0 80px;
-
-	.row {
-		@media all and (min-width:1100px) {
-			align-items: center;
-		}
-
-		p {
-			margin: 24px 0 55px;
-		}
-	}
-}
-
 .process-find-out {
 	padding: 80px 0;
 
@@ -80,6 +66,7 @@
 		padding: 8%;
 		overflow: hidden;
 		position: relative;
+		margin-bottom: 30px;
 
 		&:before {
 			content: '';
@@ -115,6 +102,8 @@
 
 	img {
 		width: 80px;
+		height: 80px;
+		object-fit: contain;
 		margin-bottom: 40px;
 	}
 

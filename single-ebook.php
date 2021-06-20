@@ -14,7 +14,7 @@ get_header();
 	<div class="container">
 		<div class="row">
 			<div class="col-7">
-				<p class="orange ttu">NEW BOOK</p>
+				<p class="orange ttu">E-BOOK</p>
 
 				<h1 class="h2"><?= get_the_title() ?></h1>
 			</div>
@@ -49,7 +49,7 @@ get_header();
 			</div>
 
 			<div class="col-6">
-				<?= do_shortcode( '[contact-form-7 id="178" title="Download ebook"]' ) ?>
+				<?= do_shortcode( rwmb_meta( 'shortcode', null, get_queried_object_id() ) ) ?>
 			</div>
 		</div>
 	</div>

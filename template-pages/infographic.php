@@ -3,25 +3,9 @@
  * Template Name: Infographic
  */
 get_header();
+
+get_template_part( 'template-parts/layout' );
 ?>
-
-<section class="graphic-banner">
-	<div class="container">
-		<div class="row">
-			<div class="col-6 graphic-banner__content">
-				<h1 class="h1">
-				E-Learning <br> Infographics
-				</h1>
-
-				<p>Infographics, Checklists, Guides about eLearning and educational animation! </p>
-			</div>
-
-			<div class="col-6">
-				<img src="<?= rwmb_meta( 'banner', null, get_queried_object_id() )[ 'full_url' ] ?>">
-			</div>
-		</div>
-	</div>
-</section>
 
 <section class="graphic-items">
 	<div class="container">

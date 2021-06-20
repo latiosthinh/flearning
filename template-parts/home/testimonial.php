@@ -1,4 +1,4 @@
-<section class="home-testimonial">
+<section class="home-testimonial page-block">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">

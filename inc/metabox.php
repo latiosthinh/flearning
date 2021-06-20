@@ -42,16 +42,40 @@ function novus_metabox( $meta_boxes ) {
 		],
 		'fields'     => [
 			[
+				'name' => __( 'Title', 'novus' ),
+				'id'   => $prefix . 'banner_title',
+				'type' => 'wysiwyg',
+				'tab'  => 'tab_0',
+			],
+			[
 				'name' => __( 'Images', 'novus' ),
 				'id'   => $prefix . 'banner',
 				'type' => 'single_image',
 				'tab'  => 'tab_0',
 			],
 			[
-				'name' => __( 'Video url', 'novus' ),
-				'id'   => $prefix . 'video_banner',
+				'name' => __( 'Video ID', 'novus' ),
+				'id'   => $prefix . 'banner_video',
 				'type' => 'text',
 				'tab'  => 'tab_0',
+			],
+			[
+				'name' => __( 'Button text', 'novus' ),
+				'id'   => $prefix . 'banner_button_text',
+				'type' => 'text',
+				'tab'  => 'tab_0',
+			],
+			[
+				'name' => __( 'Button Url', 'novus' ),
+				'id'   => $prefix . 'banner_button_url',
+				'type' => 'text',
+				'tab'  => 'tab_0',
+			],
+			[
+				'name' => __( 'Partner title', 'novus' ),
+				'id'   => $prefix . 'partner_title',
+				'type' => 'text',
+				'tab'  => 'tab_1',
 			],
 			[
 				'name' => __( 'Images', 'novus' ),
@@ -60,11 +84,17 @@ function novus_metabox( $meta_boxes ) {
 				'tab'  => 'tab_1',
 			],
 			[
+				'name' => __( 'Title', 'novus' ),
+				'id'   => $prefix . 'intro_title',
+				'type' => 'wysiwyg',
+				'tab'  => 'tab_2',
+			],
+			[
 				'name'   => __( '', 'novus' ),
 				'id'     => $prefix . 'intro',
 				'type'   => 'group',
 				'clone'  => true,
-				'tab'  => 'tab_2',
+				'tab'    => 'tab_2',
 				'fields' => [
 					[
 						'name' => __( 'Icon', 'novus' ),
@@ -89,9 +119,33 @@ function novus_metabox( $meta_boxes ) {
 				],
 			],
 			[
+				'name' => __( 'Title', 'novus' ),
+				'id'   => $prefix . 'reason_title',
+				'type' => 'wysiwyg',
+				'tab'  => 'tab_3',
+			],
+			[
 				'name' => __( 'Image', 'novus' ),
 				'id'   => $prefix . 'reason_image',
 				'type' => 'single_image',
+				'tab'  => 'tab_3',
+			],
+			[
+				'name' => __( 'Contact text', 'novus' ),
+				'id'   => $prefix . 'reason_contact',
+				'type' => 'wysiwyg',
+				'tab'  => 'tab_3',
+			],
+			[
+				'name' => __( 'Button text', 'novus' ),
+				'id'   => $prefix . 'reason_contact_text',
+				'type' => 'text',
+				'tab'  => 'tab_3',
+			],
+			[
+				'name' => __( 'Button Url', 'novus' ),
+				'id'   => $prefix . 'reason_contact_url',
+				'type' => 'text',
 				'tab'  => 'tab_3',
 			],
 			[
@@ -107,6 +161,16 @@ function novus_metabox( $meta_boxes ) {
 						'type' => 'single_image',
 					],
 					[
+						'name' => __( 'Icon width', 'novus' ),
+						'id'   => $prefix . 'width',
+						'type' => 'text',
+					],
+					[
+						'name' => __( 'Icon height', 'novus' ),
+						'id'   => $prefix . 'height',
+						'type' => 'text',
+					],
+					[
 						'name' => __( 'Title', 'novus' ),
 						'id'   => $prefix . 'title',
 						'type' => 'text',
@@ -117,6 +181,12 @@ function novus_metabox( $meta_boxes ) {
 						'type' => 'textarea',
 					],
 				],
+			],
+			[
+				'name' => __( 'Title', 'novus' ),
+				'id'   => $prefix . 'benefit_title',
+				'type' => 'wysiwyg',
+				'tab'  => 'tab_4',
 			],
 			[
 				'name'   => __( '', 'novus' ),
@@ -155,12 +225,12 @@ function novus_metabox( $meta_boxes ) {
 				'tab'  => 'tab_5',
 				'fields' => [
 					[
-						'name' => __( 'Image Gif', 'novus' ),
+						'name' => __( 'Image', 'novus' ),
 						'id'   => $prefix . 'img',
 						'type' => 'single_image',
 					],
 					[
-						'name' => __( 'Video URL', 'novus' ),
+						'name' => __( 'Video ID', 'novus' ),
 						'id'   => $prefix . 'url',
 						'type' => 'text',
 					],
@@ -221,96 +291,6 @@ function novus_metabox( $meta_boxes ) {
 						'name' => __( 'Content', 'novus' ),
 						'id'   => $prefix . 'detail',
 						'type' => 'wysiwyg',
-					],
-				],
-			],
-		],
-	];
-
-	$meta_boxes[] = [ // Education
-		'title'      => __( 'Education Settings', 'novus' ),
-		'post_types' => ['page'],
-		'include'    => [
-			'relation' => 'OR',
-			'template' => ['template-pages/education.php'],
-		],
-		'tabs'   => [
-			'tab_0' => [
-				'label' => 'Banner',
-				'icon'  => '',
-			],
-			'tab_1' => [
-				'label' => 'What we help',
-				'icon'  => '',
-			],
-			'tab_3' => [
-				'label' => 'Video',
-				'icon'  => '',
-			],
-			'tab_4' => [
-				'label' => 'Tips',
-				'icon'  => '',
-			],
-		],
-		'fields'     => [
-			[
-				'name' => __( 'Images', 'novus' ),
-				'id'   => $prefix . 'banner',
-				'type' => 'single_image',
-				'tab'  => 'tab_0',
-			],
-			[
-				'name' => __( 'Video banner url', 'novus' ),
-				'id'   => $prefix . 'video_banner',
-				'type' => 'text',
-				'tab'  => 'tab_0',
-			],
-			[
-				'name' => __( 'Image', 'novus' ),
-				'id'   => $prefix . 'help_image',
-				'type' => 'single_image',
-				'tab'  => 'tab_1',
-			],
-			[
-				'name'   => __( 'Title', 'novus' ),
-				'id'     => $prefix . 'help_title',
-				'type'   => 'text',
-				'tab'  => 'tab_1',
-			],
-			[
-				'name' => __( 'Content', 'novus' ),
-				'id'   => $prefix . 'help_detail',
-				'type' => 'wysiwyg',
-				'tab'  => 'tab_1',
-			],
-			[
-				'name' => __( 'Image', 'novus' ),
-				'id'   => $prefix . 'case_study_image',
-				'type' => 'single_image',
-				'tab'  => 'tab_2',
-			],
-			[
-				'name' => __( 'Content', 'novus' ),
-				'id'   => $prefix . 'video_detail',
-				'type' => 'wysiwyg',
-				'tab'  => 'tab_3',
-			],
-			[
-				'name'   => __( '', 'novus' ),
-				'id'     => $prefix . 'tips',
-				'type'   => 'group',
-				'clone'  => true,
-				'tab'  => 'tab_4',
-				'fields' => [
-					[
-						'name' => __( 'Icon', 'novus' ),
-						'id'   => $prefix . 'icon',
-						'type' => 'single_image',
-					],
-					[
-						'name' => __( 'Description', 'novus' ),
-						'id'   => $prefix . 'description',
-						'type' => 'textarea',
 					],
 				],
 			],
@@ -528,6 +508,11 @@ function novus_metabox( $meta_boxes ) {
 				'id'   => $prefix . 'short_description',
 				'type' => 'textarea',
 			],
+			[
+				'name' => __( 'Shortcode', 'novus' ),
+				'id'   => $prefix . 'shortcode',
+				'type' => 'text',
+			],
 		],
 	];
 
@@ -539,10 +524,6 @@ function novus_metabox( $meta_boxes ) {
 			'template' => ['template-pages/process.php'],
 		],
 		'tabs'   => [
-			'tab_0' => [
-				'label' => 'Banner',
-				'icon'  => '',
-			],
 			'tab_1' => [
 				'label' => 'About us',
 				'icon'  => '',
@@ -557,12 +538,6 @@ function novus_metabox( $meta_boxes ) {
 			],
 		],
 		'fields'     => [
-			[
-				'name' => __( 'Images', 'novus' ),
-				'id'   => $prefix . 'banner',
-				'type' => 'single_image',
-				'tab'  => 'tab_0',
-			],
 			[
 				'name'   => __( '', 'novus' ),
 				'id'     => $prefix . 'findout',
@@ -683,5 +658,374 @@ function novus_metabox( $meta_boxes ) {
 		],
 	];
 
+	$meta_boxes[] = [ // Archive banner
+		'title'      => __( 'Banner Settings', 'novus' ),
+		'post_types' => ['page'],
+		'include'    => [
+			'relation' => 'OR',
+			'template' => ['template-pages/archive-banner.php'],
+		],
+		'fields'     => [
+			[
+				'name'          => __( '', 'novus' ),
+				'id'            => $prefix . 'layout',
+				'type'          => 'group',
+				'collapsible'   => true,
+				'default_state' => 'collapsed',
+				'group_title'   => 'Banner {style}',
+				'clone'         => true,
+				'sort_clone'    => true,
+				'fields'        => [
+					[
+						'id'      => 'style',
+						'name'    => 'Choose Type',
+						'type'    => 'select',
+						'options' => [
+							'blog'  => 'Blog',
+							'ebook' => 'eBook',
+						]
+					],
+					[
+						'name'    => __( 'Content', 'novus' ),
+						'id'      => $prefix . 'layout_content',
+						'type'    => 'wysiwyg',
+						'options' => [
+							'tinymce' => true,
+						],
+					],
+					[
+						'name'    => __( 'Image', 'novus' ),
+						'id'      => $prefix . 'layout_image',
+						'type'    => 'single_image',
+					],
+					[
+						'name'        => __( 'Button', 'novus' ),
+						'id'          => $prefix . 'layout_button',
+						'type'        => 'group',
+						'collapsible' => true,
+						'clone'       => true,
+						'sort_clone'  => true,
+						'fields'      => [
+							[
+								'name' => 'Open video?',
+								'id'   => 'is_video',
+								'type' => 'checkbox',
+								'std'  => 0,
+							],
+							[
+								'id'      => 'button_text',
+								'name'    => 'Text',
+								'type'    => 'text',
+							],
+							[
+								'id'      => 'button_url',
+								'name'    => 'Url/Video ID',
+								'type'    => 'text',
+							],
+						]
+					],
+				]
+			]
+		]
+	];
+
+	$meta_boxes[] = [ // Education Layout
+		'title'      => __( 'Layout Settings', 'novus' ),
+		'post_types' => ['page'],
+		'include'    => [
+			'relation' => 'OR',
+			'template' => ['template-pages/education.php',
+							'template-pages/faqs.php',
+							'template-pages/infographic.php',
+							'template-pages/process.php',
+						],
+		],
+		'fields'     => [
+			[
+				'name'          => __( '', 'novus' ),
+				'id'            => $prefix . 'layout',
+				'type'          => 'group',
+				'collapsible'   => true,
+				'default_state' => 'collapsed',
+				'group_title'   => 'Block {#}',
+				'clone'         => true,
+				'sort_clone'    => true,
+				'fields'        => [
+					[
+						'id'      => 'style',
+						'name'    => 'Choose style',
+						'type'    => 'select',
+						'options' => [
+							1  => 'Style 1',
+							2  => 'Style 2',
+							3  => 'Style 3',
+							4  => 'Style 4',
+							5  => 'Style 5',
+							6  => 'Style 6',
+							7  => 'Style 7',
+							8  => 'Style 8',
+							9  => 'Style 9',
+							10 => 'Style 10',
+						]
+					],
+					[
+						'id'      => $prefix . 'preview_1',
+						'name'    => 'Preview',
+						'type'    => 'custom_html',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-1.png' . '" />',
+						'visible' => [ 'style', 'in', [1] ]
+					],
+					[
+						'id'      => $prefix . 'preview_2',
+						'name'    => 'Preview',
+						'type'    => 'custom_html',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-2.png' . '" />',
+						'visible' => [ 'style', 'in', [2] ]
+					],
+					[
+						'id'      => $prefix . 'preview_3',
+						'name'    => 'Preview',
+						'type'    => 'custom_html',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-3.png' . '" />',
+						'visible' => [ 'style', 'in', [3] ]
+					],
+					[
+						'id'      => $prefix . 'preview_4',
+						'name'    => 'Preview',
+						'type'    => 'custom_html',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-4.png' . '" />',
+						'visible' => [ 'style', 'in', [4] ]
+					],
+					[
+						'id'      => $prefix . 'preview_5',
+						'name'    => 'Preview',
+						'type'    => 'custom_html',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-5.png' . '" />',
+						'visible' => [ 'style', 'in', [5] ]
+					],
+					[
+						'id'      => $prefix . 'preview_6',
+						'name'    => 'Preview',
+						'type'    => 'custom_html',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-6.png' . '" />',
+						'visible' => [ 'style', 'in', [6] ]
+					],
+					[
+						'id'      => $prefix . 'preview_7',
+						'name'    => 'Preview',
+						'type'    => 'custom_html',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-7.png' . '" />',
+						'visible' => [ 'style', 'in', [7] ]
+					],
+					[
+						'id'      => $prefix . 'preview_8',
+						'name'    => 'Preview',
+						'type'    => 'custom_html',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-8.png' . '" />',
+						'visible' => [ 'style', 'in', [8] ]
+					],
+					[
+						'id'      => $prefix . 'preview_9',
+						'name'    => 'Preview',
+						'type'    => 'custom_html',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-9.png' . '" />',
+						'visible' => [ 'style', 'in', [9] ]
+					],
+					[
+						'id'      => $prefix . 'preview_10',
+						'name'    => 'Preview',
+						'type'    => 'custom_html',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-10.png' . '" />',
+						'visible' => [ 'style', 'in', [10] ]
+					],
+					[
+						'name' => 'Right to Left?',
+						'id'   => 'reverse',
+						'type' => 'checkbox',
+						'std'  => 0,
+					],
+					[
+						'name'    => __( 'Background', 'novus' ),
+						'id'      => $prefix . 'layout_background',
+						'type'    => 'single_image',
+					],
+					[
+						'name'    => __( 'Title', 'novus' ),
+						'id'      => $prefix . 'layout_title',
+						'type'    => 'text',
+						'visible' => [ 'style', 'in', [2] ]
+					],
+					[
+						'name'    => __( 'Content', 'novus' ),
+						'id'      => $prefix . 'layout_content',
+						'type'    => 'wysiwyg',
+						'options' => [
+							'tinymce' => true,
+						],
+						'visible' => [ 'style', 'in', [1,3,4,5,6,7,8,9,10] ]
+					],
+					[
+						'name'    => __( 'Image', 'novus' ),
+						'id'      => $prefix . 'layout_image',
+						'type'    => 'single_image',
+						'visible' => [ 'style', 'in', [1,2,4,6,7,9] ]
+					],
+					[
+						'name'    => __( 'Text', 'novus' ),
+						'id'      => $prefix . 'layout_textbox',
+						'type'    => 'wysiwyg',
+						'visible' => [ 'style', 'in', [6] ]
+					],
+					[
+						'name'    => __( 'Textbox float', 'novus' ),
+						'id'      => $prefix . 'layout_textbox_float',
+						'type'    => 'textarea',
+						'visible' => [ 'style', 'in', [6] ]
+					],
+					[
+						'name'    => __( 'Content Bottom', 'novus' ),
+						'id'      => $prefix . 'layout_content_bottom',
+						'type'    => 'wysiwyg',
+						'visible' => [ 'style', 'in', [4] ]
+					],
+					[
+						'name'    => __( 'Video ID', 'novus' ),
+						'id'      => $prefix . 'layout_video',
+						'type'    => 'text',
+						'visible' => [ 'style', 'in', [1,4,6,7] ]
+					],
+					[
+						'name'        => __( 'Button', 'novus' ),
+						'id'          => $prefix . 'layout_button',
+						'type'        => 'group',
+						'collapsible' => true,
+						'clone'       => true,
+						'sort_clone'  => true,
+						'visible'     => [ 'style', 'in', [1,3,4,5,6,10] ],
+						'fields'      => [
+							[
+								'name' => 'Open video?',
+								'id'   => 'is_video',
+								'type' => 'checkbox',
+								'std'  => 0,
+							],
+							[
+								'id'      => 'button_text',
+								'name'    => 'Text',
+								'type'    => 'text',
+							],
+							[
+								'id'      => 'button_url',
+								'name'    => 'Url/Video ID',
+								'type'    => 'text',
+							],
+						]
+					],
+					[
+						'name'        => __( 'Box Icon', 'novus' ),
+						'id'          => $prefix . 'layout_box_icon',
+						'type'        => 'group',
+						'collapsible' => true,
+						'clone'       => true,
+						'sort_clone'  => true,
+						'visible'     => [ 'style', 'in', [2,5] ],
+						'fields'      => [
+							[
+								'id'      => 'icon',
+								'name'    => 'Icon',
+								'type'    => 'single_image',
+							],
+							[
+								'name' => __( 'Icon width', 'novus' ),
+								'id'   => $prefix . 'width',
+								'type' => 'text',
+							],
+							[
+								'name' => __( 'Icon height', 'novus' ),
+								'id'   => $prefix . 'height',
+								'type' => 'text',
+							],
+							[
+								'id'      => 'text',
+								'name'    => 'Text',
+								'type'    => 'wysiwyg',
+							],
+						]
+					],
+					[
+						'name'        => __( 'Toggle', 'novus' ),
+						'id'          => $prefix . 'layout_toggle',
+						'type'        => 'group',
+						'collapsible' => true,
+						'clone'       => true,
+						'sort_clone'  => true,
+						'visible'     => [ 'style', 'in', [7] ],
+						'fields'      => [
+							[
+								'id'      => 'title',
+								'name'    => 'Title',
+								'type'    => 'text',
+							],
+							[
+								'id'      => 'text',
+								'name'    => 'Text',
+								'type'    => 'wysiwyg',
+							],
+							[
+								'id'      => 'button_text',
+								'name'    => 'Button text',
+								'type'    => 'text',
+							],
+							[
+								'id'      => 'button_url',
+								'name'    => 'Button url',
+								'type'    => 'text',
+							],
+						]
+					],
+					[
+						'name'        => __( 'Video', 'novus' ),
+						'id'          => $prefix . 'layout_video_group',
+						'type'        => 'group',
+						'collapsible' => true,
+						'clone'       => true,
+						'sort_clone'  => true,
+						'visible'     => [ 'style', 'in', [8] ],
+						'fields'      => [
+							[
+								'id'      => 'title',
+								'name'    => 'Title',
+								'type'    => 'text',
+							],
+							[
+								'id'      => 'video',
+								'name'    => 'Video ID',
+								'type'    => 'text',
+							],
+							[
+								'id'      => 'image',
+								'name'    => 'Image',
+								'type'    => 'single_image',
+							],
+						]
+					],
+				],
+			],
+		],
+	];
+
 	return $meta_boxes;
 }
+
+/*
+* Customize the default color palette for TinyMce editor
+*/
+function wpr_custom_color_tinymce( $options ) {
+	$options['textcolor_map'] = json_encode(
+		[
+			'F7941E', 'Code - Orange',
+		]
+	);
+	return $options;
+}
+add_filter( 'tiny_mce_before_init', 'wpr_custom_color_tinymce' );

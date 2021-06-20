@@ -97,13 +97,18 @@
 		height: 240px;
 	}
 
+	.entry-content {
+		padding: 20px 25px;
+	}
+
 	img {
 		height: 260px;
 	}
 
 	h3 {
 		height: 120px;
-		margin: 20px 0;
+		margin: 0 0 20px;
+		overflow: hidden;
 	}
 
 	p {
@@ -135,10 +140,6 @@
 			padding-left: 100px;
 		}
 	}
-
-	img {
-		mix-blend-mode: multiply;
-	}
 }
 
 .graphic-items {
@@ -156,10 +157,6 @@
 		@media all and (min-width:1100px) {
 			align-items: center;
 		}
-	}
-
-	img {
-		mix-blend-mode: multiply;
 	}
 }
 
@@ -224,16 +221,16 @@
 }
 
 .blogs-banner {
-	margin-bottom: 80px;
-
-	.row {
-		@media all and (min-width:1100px) {
-			align-items: center;
-		}
-	}
+	padding-top: 0;
 }
 
 .blogs-list {
+	padding-top: 0;
+
+	.row {
+		align-items: flex-start;
+	}
+
 	.h2 {
 		margin-bottom: 25px;
 	}
@@ -245,21 +242,35 @@
 	.row {
 		align-items: center;
 	}
+
+	.entry-info {
+		@media all and (max-width:991px) {
+			padding: 0 20px;
+		}
+	}
+	.entry-content {
+		@media all and (max-width:991px) {
+			padding: 0 20px 20px;
+		}
+	}
 }
 
 .entry-info {
 	span {
 		color: #A0A0A0;
+		width: 100%;
+		display: block;
 	}
 
 	a {
 		display: inline-flex;
 		align-items: center;
+		margin-right: 25px;
 
 		img {
 			width: 14px;
 			object-fit: contain;
-			margin: 0 5px 0 25px;
+			margin-right: 5px;
 		}
 	}
 }
@@ -281,13 +292,10 @@ article {
 	}
 
 	.entry-info {
-		padding: 0 25px;
 		margin: 24px 0 15px;
 	}
 
 	.entry-content {
-		padding: 0 25px 20px;
-
 		a:hover {
 			h2 {
 				color: var(--color-base);
@@ -298,6 +306,20 @@ article {
 
 .post-item {
 	margin-bottom: 40px;
+
+	.entry-thumbnail {
+		@media all and (max-width:1439px) {
+			max-height: 200px;
+		}
+	}
+
+	.entry-info {
+		padding: 0 25px;
+	}
+
+	.entry-content {
+		padding: 0 25px 20px;
+	}
 }
 
 .sidebar {
@@ -354,17 +376,25 @@ article {
 
 	.row {
 		align-items: center;
+		flex-wrap: nowrap;
 	}
 
 	img {
 		height: 76px;
 		border-radius: 8px;
+
+		@media all and (max-width:1439px) {
+			height: 55px;
+		}
 	}
 
 	h2 {
 		font-weight: 400;
 		font-size: 16px;
 		padding-left: 0;
+		height: 40px;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
 
@@ -390,10 +420,6 @@ article {
 			color: #fff;
 		}
 	}
-}
-
-.page-header + .blogs-list {
-	margin-top: 80px;
 }
 
 .single-post-banner {

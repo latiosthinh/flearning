@@ -1,11 +1,8 @@
-<section class="home-benefit">
+<section class="home-benefit page-block">
 	<div class="container">
 		<div class="row">
-			<div class="col-12">
-				<p class="h2 bold">
-				Key benifits of <br>
-				using animation video
-				</p>
+			<div class="col-12" style="margin-bottom:60px">
+				<?= rwmb_meta( 'benefit_title', null, get_queried_object_id() ) ?>
 			</div>
 
 			<?php
@@ -46,7 +43,7 @@
 	</div>
 </section>
 
-<section class="home-video">
+<section class="home-video page-block">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 dflex jcsb">
@@ -62,6 +59,8 @@
 			</div>
 		</div>
 
+		<?php $video_imgs = rwmb_meta( 'video_img', null, get_queried_object_id() ); ?>
+
 		<div class="video-slider splide">
 			<div class="splide__arrows">
 				<button class="splide__arrow splide__arrow--prev">
@@ -73,19 +72,15 @@
 			</div>
 			<div class="splide__track">
 				<div class="splide__list">
-					<?php
-					$video_imgs = rwmb_meta( 'video_img', null, get_queried_object_id() );
-
-					foreach ( $video_imgs as $vi ) :
-					?>
+					<?php foreach ( $video_imgs as $vi ) : ?>
 					
 					<div class="splide__slide">
-						<div class="item">
-							<?php if ( $vi['url'] ) : ?>
-								<video muted autoplay loop src="<?= $vi['url'] ?>"></video>
-							<?php else : ?>
-								<img src="<?= wp_get_attachment_url( $vi['img'] ) ?>" alt="">
-							<?php endif; ?>
+						<div class="item video">
+							<img src="<?= wp_get_attachment_url( $vi['img'] ) ?>">
+
+							<button class="play popup-open" data-popup="<?= $vi['url'] ?>">
+								<img src="<?= NOVUS_IMG . '/play-1.svg' ?>">
+							</button>
 						</div>
 					</div>
 

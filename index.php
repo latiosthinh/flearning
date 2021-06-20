@@ -13,23 +13,60 @@
  */
 
 get_header();
-?>
 
-<section class="blogs-banner">
+$banner_id = get_page_by_path( 'archive-banner' )->ID;
+
+$blocks = rwmb_meta( 'layout', null, $banner_id );
+
+foreach ( $blocks as $b ) :
+	if ( 'blog' === $b['style'] ) :
+?>
+<section class="page-block" style="background-image:url(<?= wp_get_attachment_url( $b[ 'layout_background' ], 'full' ) ?>)">
 	<div class="container">
 		<div class="row">
-			<div class="col-6">
-				<h1>Gain more usefull <br> information</h1>
-				<p>The lastest updates about eLearning and <br> the application of animated videos in education.</p>
+			<div class="col-5">
+				<?= $b[ 'layout_content' ] ?>
+
+				<?php if ( $b['layout_button'] ) : ?>
+				<div class="dflex jcc button-list">
+					<?php foreach ( $b['layout_button'] as $button ) : ?>
+						<?php if ( $button['is_video'] ) : ?>
+
+						<a class="button-3 popup-open" class="popup-open" data-popup="<?= $button['button_url'] ?>">
+							<img src="<?= NOVUS_IMG . '/play-4.svg' ?>">
+							<?= $button['button_text'] ?>
+						</a>
+
+						<?php else : ?>
+
+						<a class="button-3" href="<?= $button['button_url'] ?>">
+							<?= $button['button_text'] ?>
+						</a>
+
+						<?php endif; ?>
+					<?php endforeach; ?>
+				</div>
+				<?php endif; ?>
 			</div>
-			<div class="col-6">
-				<img src="<?= NOVUS_IMG . '/blog-banner.png' ?>">
+
+			<div class="col-7 video">
+				<img src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>">
+
+				<?php if ( $b[ 'layout_video' ] ) : ?>
+				<button class="play popup-open" data-popup="<?= $b[ 'layout_video' ]; ?>">
+					<img src="<?= NOVUS_IMG . '/play-2.svg' ?>">
+				</button>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
 </section>
+<?php
+	endif;
+endforeach;
+?>
 
-<section class="blogs-list">
+<section class="blogs-list page-block">
 	<div class="container">
 		<div class="row">
 			<div class="col-8">

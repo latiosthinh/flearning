@@ -3,6 +3,8 @@
  * Template Name: Contact
  */
 get_header();
+
+the_content();
 ?>
 
 <section class="contact-banner">

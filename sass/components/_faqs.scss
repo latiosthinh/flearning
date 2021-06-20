@@ -1,76 +1,40 @@
-.faqs-banner {
-	margin: 90px 0 150px;
-	color: #fff;
-	
-	.row {
-		background: var(--color-base);
-		@extend %shadow;
-		border-radius: 48px;
-		overflow: hidden;
-
-		@media all and (min-width:1100px) {
-			margin: 0;
-			align-items: center;
-		}
-	}
-
-	&__content {
-		@media all and (min-width:1100px) {
-			padding-left: 100px;
-		}
-	}
-
-	img {
-		mix-blend-mode: multiply;
-	}
-}
-
 .faqs-list {
 	.faq-block {
 		border-radius: 24px;
 		margin-bottom: 48px;
-
-		&.active {
-			border: 1px solid var(--color-black);
-		}
 	}
 
 	.accordions {
 		padding-left: 0;
 
 		.control {
-			border-bottom: 0;
-			background: #fff;
-			border-radius: 24px;
+			border-bottom: 1px solid var(--color-grey);
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 
 			&.active {
 				background: transparent;
-			}
 
-			@media all and (min-width:1100px) {
-				padding: 4% 5%;
+				&:after {
+					content: '-';
+				}
 			}
 
 			&:after {
-				content: '';
-				display: block;
-				width: 12px;
-				border-left: 7px solid transparent;
-				border-right: 7px solid transparent;
-				border-top: 7px solid var(--color-black);
+				content: '+';
+				font-size: 26px;
+				// display: block;
+				// width: 12px;
+				// border-left: 7px solid transparent;
+				// border-right: 7px solid transparent;
+				// border-top: 7px solid var(--color-black);
 			}
 		}
 
 		.panel {
 			margin-bottom: 0;
 			font-weight: normal;
-
-			@media all and (min-width:1100px) {
-				padding: 0 5%;
-			}
 		}
 	}
 }

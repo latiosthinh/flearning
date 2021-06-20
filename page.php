@@ -13,19 +13,12 @@
  */
 
 get_header();
-?>
 
-<?php
 while ( have_posts() ) :
 	the_post();
-?>
 
-<?= novus_breadcrumbs(); ?>
+	the_content();
 
-<div class="container page-content">
-	<?php the_content(); ?>
-</div>
+endwhile;
 
-<?php endwhile; ?>
-<?php
 get_footer();

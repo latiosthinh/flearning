@@ -77,7 +77,7 @@ get_header();
 			</div>
 
 			<?php
-			$cs1 = new WP_Query( [
+			$cs2 = new WP_Query( [
 				'post_type'      => 'case-study',
 				'posts_per_page' => -1,
 				'tax_query'      => [
@@ -89,7 +89,7 @@ get_header();
 				]
 			] );
 
-			while ( $cs1->have_posts() ) : $cs1->the_post();
+			while ( $cs2->have_posts() ) : $cs2->the_post();
 			?>
 
 			<div class="col-4 item tac">
@@ -116,7 +116,7 @@ get_header();
 			</div>
 
 			<?php
-			$cs1 = new WP_Query( [
+			$cs3 = new WP_Query( [
 				'post_type'      => 'case-study',
 				'posts_per_page' => -1,
 				'tax_query'      => [
@@ -128,7 +128,7 @@ get_header();
 				]
 			] );
 
-			while ( $cs1->have_posts() ) : $cs1->the_post();
+			while ( $cs3->have_posts() ) : $cs3->the_post();
 			?>
 
 			<div class="col-4 item tac">
