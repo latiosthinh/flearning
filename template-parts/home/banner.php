@@ -1,4 +1,4 @@
-<section class="home-banner">
+<section class="home-banner page-block">
 	<div class="container">
 		<div class="row">
 

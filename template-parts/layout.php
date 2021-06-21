@@ -14,7 +14,7 @@ foreach ( $blocks as $b ) :
 					<?= $b[ 'layout_content' ] ?>
 
 					<?php if ( $b['layout_button'] ) : ?>
-					<div class="dflex jcc button-list">
+					<div class="dflex button-list">
 						<?php foreach ( $b['layout_button'] as $button ) : ?>
 							<?php if ( $button['is_video'] ) : ?>
 
@@ -380,6 +380,54 @@ foreach ( $blocks as $b ) :
 					</div>
 					<?php endif; ?>
 				</div>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( 11 == $b['style'] ) : ?>
+			<!-- ************* Style 11 ************* -->
+			<div class="row block-style-11">
+				<div class="col-12">
+					<?= $b['layout_content'] ?>
+				</div>
+
+				<?php
+				$tips = $b['layout_box_icon'];
+
+				foreach ( $tips as $i ) :
+				?>
+
+				<div class="col-4">
+					<div class="item">
+						<img src="<?= wp_get_attachment_url( $i['icon'] ) ?>">
+
+						<div class="content">
+							<?= $i['text'] ?>
+						</div>
+					</div>
+				</div>
+
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( 12 == $b['style'] ) : ?>
+			<!-- ************* Style 12 ************* -->
+			<div class="row block-style-12 accordions">
+				<?php
+				$accs = $b['layout_toggle'];
+				foreach ( $accs as $a ) :
+				?>
+
+					<div class="col-12">
+						<div class="faq-block">
+							<h4 class="control"><?= $a[ 'title' ] ?></h4>
+							<div class="panel">
+								<?= $a[ 'text' ] ?>
+							</div>
+						</div>
+					</div>
+
+				<?php endforeach; ?>
 			</div>
 		<?php endif; ?>
 	</div>

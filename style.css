@@ -439,7 +439,7 @@ iframe {
   }
 }
 
-.page-block .box, .health-banner .content, .health-case-study .box, .health-info .item, .process-step .item, .graphic-banner .row, .graphic-items img, .sidebar .ebook-download img, .single-ebook-banner img, .single-ebook-content img {
+.page-block .box, .page-block .block-style-11 .item, .health-banner .content, .health-case-study .box, .health-info .item, .process-step .item, .graphic-banner .row, .graphic-items img, .sidebar .ebook-download img, .single-ebook-banner img, .single-ebook-content img {
   box-shadow: 0px 16px 32px -8px rgba(0, 0, 0, 0.15);
 }
 
@@ -838,6 +838,10 @@ label textarea {
   display: block;
 }
 
+#wpadminbar .quicklinks ul {
+  display: none !important;
+}
+
 .process-step .tab-nav button.active, .process-step .tab-nav button:hover {
   position: relative;
 }
@@ -1096,6 +1100,12 @@ label textarea {
   max-width: 5em;
 }
 
+.wp-block-image,
+.wp-block-embed,
+.wp-block-table {
+  margin: 2em auto;
+}
+
 .wp-block-image img {
   display: block;
 }
@@ -1110,7 +1120,14 @@ label textarea {
 
 .wp-block-table td, .wp-block-table th,
 .wp-block-table thead, .wp-block-table tfoot {
-  border-color: var(--color-light);
+  border: 1px solid #000;
+  white-space: pre-wrap;
+  padding: .5em;
+  word-break: normal;
+}
+
+table {
+  border-spacing: 0;
 }
 
 blockquote {
@@ -1728,6 +1745,10 @@ blockquote.has-text-align-right,
   color: var(--color-accent);
 }
 
+.single .blob-wrapper {
+  display: none;
+}
+
 .blob-wrapper {
   position: fixed;
   top: 0;
@@ -2057,6 +2078,13 @@ blockquote.has-text-align-right,
   border-radius: 48px;
 }
 
+@media all and (max-width: 1400px) {
+  .home-video .item {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+
 .home-video .splide__arrows {
   width: calc( 100% + 100px);
   position: absolute;
@@ -2066,6 +2094,12 @@ blockquote.has-text-align-right,
   z-index: 2;
   display: flex;
   justify-content: space-between;
+}
+
+@media all and (max-width: 1400px) {
+  .home-video .splide__arrows {
+    width: 100%;
+  }
 }
 
 @media all and (max-width: 991px) {
@@ -2260,6 +2294,7 @@ blockquote.has-text-align-right,
 .page-block .box-icon-white img {
   width: 64px;
   height: 64px;
+  object-fit: contain;
   margin-right: 40px;
 }
 
@@ -2472,6 +2507,21 @@ blockquote.has-text-align-right,
   .page-block .block-style-9 {
     padding: 50px;
   }
+}
+
+.page-block .block-style-11 .col-12 {
+  margin-bottom: 80px;
+}
+
+.page-block .block-style-11 .item {
+  background: #fff;
+  border-radius: 40px;
+  padding: 8%;
+}
+
+.page-block .block-style-11 img {
+  width: 80px;
+  margin-bottom: 40px;
 }
 
 .health-banner {
@@ -2736,6 +2786,40 @@ blockquote.has-text-align-right,
 }
 
 .faqs-list .accordions .panel {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.block-style-12 .faq-block {
+  border-radius: 24px;
+  margin-bottom: 48px;
+}
+
+.block-style-12.accordions {
+  padding-left: 0;
+}
+
+.block-style-12.accordions .control {
+  border-bottom: 1px solid var(--color-grey);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.block-style-12.accordions .control.active {
+  background: transparent;
+}
+
+.block-style-12.accordions .control.active:after {
+  content: '-';
+}
+
+.block-style-12.accordions .control:after {
+  content: '+';
+  font-size: 26px;
+}
+
+.block-style-12.accordions .panel {
   margin-bottom: 0;
   font-weight: normal;
 }
@@ -3109,14 +3193,6 @@ blockquote.has-text-align-right,
   }
 }
 
-.blogs-banner {
-  padding-top: 0;
-}
-
-.blogs-list {
-  padding-top: 0;
-}
-
 .blogs-list .row {
   align-items: flex-start;
 }
@@ -3323,6 +3399,19 @@ article .entry-content a:hover h2 {
   color: #fff;
   border-radius: 48px;
   padding: 8% 64px;
+}
+
+.single-post-content .col-8 p {
+  line-height: 25px;
+}
+
+.single-post-content .col-8 a {
+  color: var(--color-base);
+}
+
+.single-post-content .col-8 a:hover {
+  color: var(--color-black);
+  text-decoration: underline;
 }
 
 .related-post {

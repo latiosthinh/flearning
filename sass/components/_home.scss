@@ -197,6 +197,11 @@
 	.item {
 		overflow: hidden;
 		border-radius: 48px;
+
+		@media all and (max-width:1400px) {
+			max-width: 80%;
+			margin: 0 auto;
+		}
 	}
 
 	.splide__arrows {
@@ -208,6 +213,10 @@
 		z-index: 2;
 		display: flex;
 		justify-content: space-between;
+
+		@media all and (max-width:1400px) {
+			width: 100%;
+		}
 
 		@media all and (max-width:991px) {
 			display: none;

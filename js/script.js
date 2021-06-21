@@ -71,6 +71,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		});
 
 		closePopup.addEventListener( 'click', function() {
+			popup.innerHTML = '';
 			popup.classList.remove( 'active' )
 			this.classList.remove( 'active' )
 		} )

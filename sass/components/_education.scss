@@ -91,7 +91,6 @@
 	}
 
 	.box-icon-white {
-
 		.item {
 			div {
 				background: #fff;
@@ -109,6 +108,7 @@
 		img {
 			width: 64px;
 			height: 64px;
+			object-fit: contain;
 			margin-right: 40px;
 		}
 	}
@@ -319,6 +319,24 @@
 
 		@media all and (min-width:992px) {
 			padding: 50px;
+		}
+	}
+
+	.block-style-11 {
+		.col-12 {
+			margin-bottom: 80px;
+		}
+	
+		.item {
+			background: #fff;
+			@extend %shadow;
+			border-radius: 40px;
+			padding: 8%;
+		}
+	
+		img {
+			width: 80px;
+			margin-bottom: 40px;
 		}
 	}
 }

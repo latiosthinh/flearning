@@ -605,6 +605,10 @@ label {
 	}
 }
 
+#wpadminbar .quicklinks ul {
+	display: none !important;
+}
+
 %active {
 	position: relative;
 

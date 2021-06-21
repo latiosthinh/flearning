@@ -220,13 +220,7 @@
 	}
 }
 
-.blogs-banner {
-	padding-top: 0;
-}
-
 .blogs-list {
-	padding-top: 0;
-
 	.row {
 		align-items: flex-start;
 	}
@@ -439,6 +433,23 @@ article {
 		color: #fff;
 		border-radius: 48px;
 		padding: 8% 64px;
+	}
+}
+
+.single-post-content {
+	.col-8 {
+		p {
+			line-height: 25px;
+		}
+
+		a {
+			color: var(--color-base);
+
+			&:hover {
+				color: var(--color-black);
+				text-decoration: underline;
+			}
+		}
 	}
 }
 

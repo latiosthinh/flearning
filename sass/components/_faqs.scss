@@ -24,11 +24,42 @@
 			&:after {
 				content: '+';
 				font-size: 26px;
-				// display: block;
-				// width: 12px;
-				// border-left: 7px solid transparent;
-				// border-right: 7px solid transparent;
-				// border-top: 7px solid var(--color-black);
+			}
+		}
+
+		.panel {
+			margin-bottom: 0;
+			font-weight: normal;
+		}
+	}
+}
+
+.block-style-12 {
+	.faq-block {
+		border-radius: 24px;
+		margin-bottom: 48px;
+	}
+
+	&.accordions {
+		padding-left: 0;
+
+		.control {
+			border-bottom: 1px solid var(--color-grey);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			&.active {
+				background: transparent;
+
+				&:after {
+					content: '-';
+				}
+			}
+
+			&:after {
+				content: '+';
+				font-size: 26px;
 			}
 		}
 

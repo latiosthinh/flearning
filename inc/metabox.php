@@ -738,6 +738,7 @@ function novus_metabox( $meta_boxes ) {
 							'template-pages/faqs.php',
 							'template-pages/infographic.php',
 							'template-pages/process.php',
+							'template-pages/contact.php'
 						],
 		],
 		'fields'     => [
@@ -756,16 +757,18 @@ function novus_metabox( $meta_boxes ) {
 						'name'    => 'Choose style',
 						'type'    => 'select',
 						'options' => [
-							1  => 'Style 1',
-							2  => 'Style 2',
-							3  => 'Style 3',
-							4  => 'Style 4',
-							5  => 'Style 5',
-							6  => 'Style 6',
-							7  => 'Style 7',
-							8  => 'Style 8',
+							4  => 'Banner Style 1',
+							1  => 'Banner Style 2',
+							2  => 'Why F Style 1',
+							11 => 'Why F Style 2',
+							7  => 'Case Study Style 1',
+							6  => 'Case Study Style 2',
+							8  => 'Video',
 							9  => 'Style 9',
-							10 => 'Style 10',
+							10 => 'CTA Style 1',
+							5  => 'CTA Style 2',
+							3  => 'CTA Style 3',
+							12 => 'Accodions',
 						]
 					],
 					[
@@ -839,6 +842,20 @@ function novus_metabox( $meta_boxes ) {
 						'visible' => [ 'style', 'in', [10] ]
 					],
 					[
+						'id'      => $prefix . 'preview_11',
+						'name'    => 'Preview',
+						'type'    => 'custom_html',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-11.png' . '" />',
+						'visible' => [ 'style', 'in', [11] ]
+					],
+					[
+						'id'      => $prefix . 'preview_12',
+						'name'    => 'Preview',
+						'type'    => 'custom_html',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-12.png' . '" />',
+						'visible' => [ 'style', 'in', [12] ]
+					],
+					[
 						'name' => 'Right to Left?',
 						'id'   => 'reverse',
 						'type' => 'checkbox',
@@ -862,7 +879,7 @@ function novus_metabox( $meta_boxes ) {
 						'options' => [
 							'tinymce' => true,
 						],
-						'visible' => [ 'style', 'in', [1,3,4,5,6,7,8,9,10] ]
+						'visible' => [ 'style', 'in', [1,3,4,5,6,7,8,9,10,11] ]
 					],
 					[
 						'name'    => __( 'Image', 'novus' ),
@@ -928,7 +945,7 @@ function novus_metabox( $meta_boxes ) {
 						'collapsible' => true,
 						'clone'       => true,
 						'sort_clone'  => true,
-						'visible'     => [ 'style', 'in', [2,5] ],
+						'visible'     => [ 'style', 'in', [2,5,11] ],
 						'fields'      => [
 							[
 								'id'      => 'icon',
@@ -959,7 +976,7 @@ function novus_metabox( $meta_boxes ) {
 						'collapsible' => true,
 						'clone'       => true,
 						'sort_clone'  => true,
-						'visible'     => [ 'style', 'in', [7] ],
+						'visible'     => [ 'style', 'in', [7,12] ],
 						'fields'      => [
 							[
 								'id'      => 'title',

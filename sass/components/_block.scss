@@ -29,6 +29,12 @@
 	max-width: 5em;
 }
 
+.wp-block-image,
+.wp-block-embed,
+.wp-block-table {
+	margin: 2em auto;
+}
+
 // Image.
 .wp-block-image img {
 	display: block;
@@ -46,7 +52,14 @@
 // Table.
 .wp-block-table td, .wp-block-table th,
 .wp-block-table thead, .wp-block-table tfoot {
-	border-color: var(--color-light);
+	border: 1px solid #000;
+	white-space: pre-wrap;
+	padding: .5em;
+    word-break: normal;
+}
+
+table {
+	border-spacing: 0;
 }
 
 // Quotes.
