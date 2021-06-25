@@ -8,6 +8,8 @@
  */
 
 get_header();
+
+$type = rwmb_meta( 'horizontal', null, get_queried_object_id() );
 ?>
 
 <section class="single-ebook-banner">
@@ -22,7 +24,7 @@ get_header();
 			</div>
 
 			<div class="col-5 image">
-				<img src="<?= rwmb_meta( 'cover', null, get_queried_object_id() )[ 'sizes' ]['thumb-ebokk']['url'] ?>">
+				<img src="<?= '0' === $type ? rwmb_meta( 'cover', null, get_queried_object_id() )[ 'sizes' ]['thumb-ebokk']['url'] : rwmb_meta( 'cover', null, get_queried_object_id() )[ 'sizes' ]['thumb-ebokk-h']['url'] ?>">
 			</div>
 		</div>
 	</div>
@@ -42,7 +44,7 @@ get_header();
 						foreach ( $images as $image ) :
 						?>
 						<div class="splide__slide">
-							<img src="<?= $image[ 'sizes' ]['thumb-ebokk']['url'] ?>">
+							<img src="<?= '0' === $type ? $image[ 'sizes' ]['thumb-ebokk']['url'] : $image[ 'sizes' ]['thumb-ebokk-h']['url'] ?>">
 						</div>
 						<?php endforeach; ?>
 						</div>
@@ -67,4 +69,4 @@ get_header();
 </section>
 
 <?php
-get_footer( 'no-contact' );
+get_footer();
