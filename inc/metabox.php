@@ -512,6 +512,12 @@ function novus_metabox( $meta_boxes ) {
 		'post_types' => ['ebook'],
 		'fields'     => [
 			[
+				'name' => __( 'Is horizontal?', 'novus' ),
+				'id'   => $prefix . 'horizontal',
+				'type' => 'checkbox',
+				'std'  => 0
+			],
+			[
 				'name' => __( 'Cover', 'novus' ),
 				'id'   => $prefix . 'cover',
 				'type' => 'single_image',
