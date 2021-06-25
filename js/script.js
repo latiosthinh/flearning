@@ -1,9 +1,30 @@
 document.addEventListener( 'DOMContentLoaded', function() {
 	const header = document.getElementById( 'masthead' );
 
-	const fixHeader = () => {
-		header.classList.add( 'fixed' );
-	}
+	const links = [
+		`${php_data.base_url}/wp-content/themes/flearning/style-criticle.css`,
+		`${php_data.base_url}/wp-content/themes/flearning/style-defer.css`
+	];
+
+	links.forEach( l => {
+		const link = document.createElement( 'link' );
+
+		link.rel  = 'stylesheet';
+		link.href = l
+
+		header.appendChild( link );
+	} )
+
+	const scriptTag = document.createElement('script');
+    scriptTag.src = `${php_data.base_url}/wp-content/themes/flearning/js/splide.js`;
+    document.body.appendChild( scriptTag );
+
+	// const link = document.createElement( 'link' );
+
+	// link.rel    = 'stylesheet';
+	// link.href   = `${php_data.base_url}/wp-content/themes/flearning/style-defer.css`;
+	
+	// header.appendChild( link );
 
 	if ( window.innerWidth > 992 ) {
 		window.addEventListener( 'scroll', function() {
@@ -49,9 +70,9 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	}
 
 	// Popup
-	const openPopup = document.querySelectorAll( '.popup-open' )
+	const openPopup  = document.querySelectorAll( '.popup-open' )
 	const closePopup = document.querySelector( '.popup-close' )
-	const popup = document.querySelector( '.popup' )
+	const popup      = document.querySelector( '.popup' )
 	
 	const dataSrc = 'https://www.youtube.com/embed/'
 
@@ -101,87 +122,22 @@ document.addEventListener( 'DOMContentLoaded', function() {
 					if ( panel.style.maxHeight ) {
 						panel.style.maxHeight = null;
 					} else {
-						panel.style.maxHeight = panel.scrollHeight + 'px';
+						panel.style.maxHeight = panel.scrollHeight + 10 + 'px';
 					}
 				});
 			}
+			
+			acc[0].click();
 		} )
 	}
 
-	// if ( document.querySelector( '.splide' ) ) {
-	// 	new Splide( '.splide', {
-	// 		type      : 'loop',
-	// 		pagination: false
-	// 	} ).mount();
-	// }
-
-	if ( document.querySelector( '.video-slider' ) ) {
-		new Splide( '.video-slider', {
-			type      : 'loop',
-			pagination: false,
-			breakpoints: {
-				pagination: true
-			}
-		} ).mount();
-	}
-
-	if ( document.querySelector( '.partner-slider' ) ) {
-		const partnerSlider = document.querySelector( '.partner-slider' );
-		const splide = new Splide( partnerSlider, {
-			type      : 'loop',
-			pagination: false,
-			autoplay  : true,
-			interval  : 3000,
-			arrows    : false,
-			perPage   : 6,
-			gap       : '5%',
-			breakpoints: {
-				991: {
-					perPage   : 2,
-				},
-			}
-		} ).mount();
-	}
-
-	if ( document.querySelector( '.ebook-slider' ) ) {
-		const ebookSlider = document.querySelector( '.ebook-slider' );
-		const splide = new Splide( ebookSlider, {
-			type      : 'loop',
-			pagination: false,
-			autoplay  : true,
-			interval  : 3000,
-		} ).mount();
-	}
+	
 
 	// Back to top
 	const backToTop = document.querySelector( '#back-to-top' )
 	if ( backToTop ) {
 		backToTop.addEventListener( 'click', function() {
 			window.scroll({top: 0, left: 0, behavior: 'smooth'});
-		} )
-	}
-
-	// AJAX
-	if ( document.querySelector( '.get-more' ) ) {
-		const $ = jQuery;
-		const getMore = document.querySelector( '.get-more' );
-		let offset = 0;
-
-		getMore.addEventListener( 'click', function() {
-			$.post( {
-				url: php_data.ajax_url,
-				data: {
-					'action': 'get_rotoi',
-					'nonce' : php_data.nonce,
-					'offset': offset+=3
-				},
-				success:function( data ) {
-					$( '.rotoi-list' ).append( data )
-				},
-				error: function( err ){
-					console.log( err );
-				}
-			} );  
 		} )
 	}
 });

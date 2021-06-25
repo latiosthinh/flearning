@@ -4,13 +4,14 @@ $blocks = rwmb_meta( 'layout', null, get_queried_object_id() );
 foreach ( $blocks as $b ) :
 ?>
 
-<section class="page-block" style="background-image:url(<?= wp_get_attachment_url( $b[ 'layout_background' ], 'full' ) ?>)">
+<section class="page-block <?= $b[ 'layout_background' ] ? 'has-background' : '' ?>"
+	style="background-image:url(<?= wp_get_attachment_url( $b[ 'layout_background' ], 'full' ) ?>)">
 	<div class="container">
 		<?php if ( 1 == $b['style'] ) : ?>
 		<!-- ************* Style 1 ************* -->
 			
 			<div class="row <?= 1 == $b['reverse'] ? 'reverse' : '' ?>">
-				<div class="col-5">
+				<div class="<?= 1 == $b['small'] ? 'col-6' : 'col-5' ?>">
 					<?= $b[ 'layout_content' ] ?>
 
 					<?php if ( $b['layout_button'] ) : ?>
@@ -35,12 +36,12 @@ foreach ( $blocks as $b ) :
 					<?php endif; ?>
 				</div>
 
-				<div class="col-7 video">
-					<img src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>">
+				<div class="<?= 1 == $b['small'] ? 'col-6' : 'col-7' ?> video">
+					<img style="width:<?= $b['layout_image_width'] ?>%" src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>">
 
 					<?php if ( $b[ 'layout_video' ] ) : ?>
 					<button class="play popup-open" data-popup="<?= $b[ 'layout_video' ]; ?>">
-						<img src="<?= NOVUS_IMG . '/play-2.svg' ?>">
+						<img src="<?= NOVUS_IMG . '/play-1.png' ?>" style="width:56px;height:56px;">
 					</button>
 					<?php endif; ?>
 				</div>
@@ -212,7 +213,7 @@ foreach ( $blocks as $b ) :
 					</div>
 				<?php endif; ?>
 
-				<div class="col-5">
+				<div class="col-6">
 					<?= $b['layout_textbox'] ?>
 
 					<?php if ( $b['layout_button'] ) : ?>
@@ -237,12 +238,12 @@ foreach ( $blocks as $b ) :
 					<?php endif; ?>
 				</div>
 
-				<div class="col-7">
-					<img class="image" src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>" style="<?= ! $b['layout_textbox_float'] ? 'max-width:unset' : '' ?>">
+				<div class="col-6 video">
+					<img style="width:<?= $b['layout_image_width'] ?>%" class="image" src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>" style="<?= ! $b['layout_textbox_float'] ? 'max-width:unset' : '' ?>">
 
 					<?php if ( ! $b['layout_textbox_float'] && $b['layout_video'] ) : ?>
 						<button class="play popup-open" data-popup="<?= $b['layout_video'] ?>">
-							<img src="<?= NOVUS_IMG . '/play-2.svg' ?>">
+							<img src="<?= NOVUS_IMG . '/play-1.png' ?>" style="width:56px;height:56px;">
 						</button>
 					<?php endif; ?>
 					
@@ -275,17 +276,23 @@ foreach ( $blocks as $b ) :
 
 				foreach ( $toggle as $t ) :
 				?>
+					<?php if ( $t['title'] && $t['label'] ) : ?>
+						<h3><?= $t['title'] ?></h3>
+					<?php endif; ?>
 
 					<div class="accordions">
 						<h3 class="h3 control">
-							<?= $t['title'] ?>
+							<?= $t['label'] ? $t['label'] : $t['title'] ?>
 							<img src="<?= NOVUS_IMG . '/right.svg' ?>">
 						</h3>
 						<div class="panel">
 							<?= $t['text'] ?>
+
+							<?php if ( $t['button_url'] ) : ?>
 							<div>
 								<a href="<?= $t['button_url'] ?>" class="button-1"><?= $t['button_text'] ?></a>
 							</div>
+							<?php endif; ?>
 						</div>
 					</div>
 
@@ -294,11 +301,11 @@ foreach ( $blocks as $b ) :
 
 				<div class="col-6">
 					<div class="video">
-						<img src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>">
+						<img style="width:<?= $b['layout_image_width'] ?>%" src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>">
 
 						<?php if ( $b[ 'layout_video' ] ) : ?>
 						<button class="play popup-open" data-popup="<?= $b[ 'layout_video' ]; ?>">
-							<img src="<?= NOVUS_IMG . '/play-2.svg' ?>">
+							<img src="<?= NOVUS_IMG . '/play-1.png' ?>" style="width:56px;height:56px;">
 						</button>
 						<?php endif; ?>
 					</div>
@@ -323,15 +330,15 @@ foreach ( $blocks as $b ) :
 				?>
 				<div class="col-4 item">
 					<div class="video">
-						<img src="<?= wp_get_attachment_url( $v[ 'image' ], 'full' ) ?>">
+						<img src="<?= wp_get_attachment_image_src( $v[ 'image' ], 'thumb-video' )[0] ?>">
 
 						<?php if ( $v[ 'video' ] ) : ?>
 						<button class="play popup-open" data-popup="<?= $v[ 'video' ]; ?>">
-							<img src="<?= NOVUS_IMG . '/play-2.svg' ?>">
+							<img src="<?= NOVUS_IMG . '/play-1.png' ?>" style="width:56px;height:56px;">
 						</button>
 						<?php endif; ?>
 					</div>
-					<p><?= $v['title'] ?></p>
+					<a href="<?= $v['url'] ?>"><?= $v['title'] ?></a>
 				</div>
 				<?php endforeach; ?>
 			</div>
@@ -346,8 +353,8 @@ foreach ( $blocks as $b ) :
 					<?= $b[ 'layout_content' ]; ?>
 				</div>
 
-				<div class="col-6">
-					<img src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>">
+				<div class="col-6 video">
+					<img style="width:<?= $b['layout_image_width'] ?>%" src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>">
 				</div>
 			</div>
 		<?php endif; ?>
@@ -413,6 +420,12 @@ foreach ( $blocks as $b ) :
 		<?php if ( 12 == $b['style'] ) : ?>
 			<!-- ************* Style 12 ************* -->
 			<div class="row block-style-12 accordions">
+				<?php if ( $b['layout_content'] ) : ?>
+				<div class="col-12 accordions_title">
+					<?= $b['layout_content'] ?>
+				</div>
+				<?php endif; ?>
+
 				<?php
 				$accs = $b['layout_toggle'];
 				foreach ( $accs as $a ) :

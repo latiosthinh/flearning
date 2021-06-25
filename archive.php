@@ -12,7 +12,7 @@ get_header();
 
 <?php if ( have_posts() ) : ?>
 
-<header class="page-header">
+<header class="page-header" style="margin:30px 0 60px;">
 	<div class="container">
 	<?php
 	the_archive_title( '<h1 class="page-title">', '</h1>' );
@@ -26,11 +26,13 @@ get_header();
 		<div class="row">
 			<div class="col-8">
 				<div class="row">
-					<?php
-					while ( have_posts() ) :
-						the_post();
+					<?php while ( have_posts() ) : the_post(); ?>
 
-						get_template_part( 'template-parts/content', 'post' );
+					<div class="col-6">
+						<?php get_template_part( 'template-parts/content', 'post' ); ?>
+					</div>
+
+					<?php
 					endwhile;
 
 					the_posts_pagination( [

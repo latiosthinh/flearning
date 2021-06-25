@@ -1,6 +1,6 @@
 <article class="post-item">
 	<a class="entry-thumbnail" href="<?php the_permalink() ?>">
-		<?php the_post_thumbnail( 'thumb-graphic' ) ?>
+		<?php the_post_thumbnail( 'thumb-post' ) ?>
 
 		<div class="tag">Free</div>
 	</a>

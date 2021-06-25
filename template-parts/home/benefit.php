@@ -14,14 +14,14 @@
 			<div class="col-8">
 				<div class="item">
 					<div class="row">
-						<div class="col-6">
+						<div class="col-7">
 							<img class="icon" src="<?= wp_get_attachment_url( $b['icon'] ) ?>">
 
 							<h3 class="h4"><?= $b['title'] ?></h3>
 							<p><?= $b['description'] ?></p>
 						</div>
 
-						<div class="col-6 image">
+						<div class="col-5 image">
 							<img src="<?= wp_get_attachment_url( $b['image'] ) ?>">
 						</div>
 					</div>
@@ -51,10 +51,10 @@
 				Check out our <br>
 				newest animation
 				</p>
-				
-				<a href="<?= home_url( '/case-studies' ) ?>">
-					<img src="<?= NOVUS_IMG . '/eye.svg' ?>">
-					All case studies
+
+				<a href="<?= get_page_by_path( 'our-works' )->guid ?>">
+					<img width="30" height="20" src="<?= NOVUS_IMG . '/eye.svg' ?>">
+					Our works
 				</a>
 			</div>
 		</div>
@@ -64,10 +64,10 @@
 		<div class="video-slider splide">
 			<div class="splide__arrows">
 				<button class="splide__arrow splide__arrow--prev">
-					<img src="<?= NOVUS_IMG . '/left.svg' ?>" alt="prev">
+					<img width="27" height="27" src="<?= NOVUS_IMG . '/left.svg' ?>" alt="prev">
 				</button>
 				<button class="splide__arrow splide__arrow--next">
-					<img src="<?= NOVUS_IMG . '/right.svg' ?>" alt="prev">
+					<img width="27" height="27" src="<?= NOVUS_IMG . '/right.svg' ?>" alt="prev">
 				</button>
 			</div>
 			<div class="splide__track">
@@ -76,10 +76,10 @@
 					
 					<div class="splide__slide">
 						<div class="item video">
-							<img src="<?= wp_get_attachment_url( $vi['img'] ) ?>">
+							<img src="<?= wp_get_attachment_image_src( $vi['img'], 'big-slider')[0] ?>">
 
 							<button class="play popup-open" data-popup="<?= $vi['url'] ?>">
-								<img src="<?= NOVUS_IMG . '/play-1.svg' ?>">
+								<img src="<?= NOVUS_IMG . '/play-1.png' ?>" style="width:56px;height:56px;">
 							</button>
 						</div>
 					</div>

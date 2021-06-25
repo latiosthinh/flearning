@@ -24,13 +24,7 @@ main {
 	padding-top: 10vh;
 
 	@media all and (max-width:768px) {
-		padding-top: 20px;
-	}
-}
-
-.page-template-contact {
-	main {
-		padding-top: 0;
+		padding-top: 20vh;
 	}
 }
 
@@ -97,16 +91,16 @@ h4, .h4 {
 	}
 }
 
-a,
-a:hover {
-	text-decoration: none;
-	color: var(--color-black);
-	outline: none;
-}
-
 a {
+	text-decoration: none;
+	outline: none;
 	transition: .3s;
 	cursor: pointer;
+	color: var(--color-black);
+
+	&:hover {
+		color: var(--color-base);
+	}
 }
 
 img {
@@ -206,15 +200,6 @@ li {
 	}
 }
 
-iframe {
-	width: 100%;
-	height: 400px;
-
-	@media all and (min-width:992px) {
-		min-height: 70vh;
-	}
-}
-
 %shadow {
 	box-shadow: 0px 16px 32px -8px rgba(0, 0, 0, 0.15);
 }
@@ -255,7 +240,8 @@ button {
 	transition: .3s;
 }
 
-.button-1 {
+.button-1,
+input[type=submit] {
 	border-radius: 999px;
 	background: var(--color-base);
 	color: #fff;
@@ -300,18 +286,24 @@ button {
 
 .button-3 {
 	border-radius: 999px;
-	background: #fff;
-	color: var(--color-base);
+	background: var(--color-base);
+	color: #fff;
 	font-weight: 700;
 	border: 0;
 	outline: none;
 	padding: 16px 24px;
 	cursor: pointer;
 	transition: .3s;
+	display: inline-flex;
+
+	img {
+		width: 30px;
+		object-fit: contain;
+		margin-right: 12px;
+	}
 
 	&:hover {
-		background: var(--color-black);
-		color: #fff;
+		opacity: .9;
 	}
 
 	@media all and (max-width:1440px) {
@@ -394,7 +386,6 @@ button {
 
 		p {
 			margin: 15px 0;
-			font-size: 14px;
 		}
 	}
 }
@@ -473,6 +464,7 @@ label {
 	position: relative;
 	margin-bottom: 24px;
 	display: block;
+	cursor: pointer;
 
 	img {
 		width: 16px;
@@ -481,6 +473,62 @@ label {
 		top: 24px;
 		left: 24px;
 		z-index: 2;
+	}
+}
+
+.wpcf7 {
+	&-list-item {
+		margin-left: 0;
+
+		label {
+			position: relative;
+			margin-bottom: 20px;
+
+			input {
+				position: absolute;
+				opacity: 0;
+			}
+		}
+
+		input {
+			&:checked {
+				& + span:after {
+					visibility: visible;
+				}
+			}
+		}
+
+		&-label {
+			position: relative;
+			display: inline-flex;
+			align-items: center;
+
+			&:before {
+				display: block;
+				width: 20px;
+				height: 20px;
+				border: 1px solid var(--color-base);
+				border-radius: 4px;
+				margin-right: 12px;
+			}
+
+			&:after {
+				content: '\2713';
+				color: var(--color-base);
+				position: absolute;
+				top: -5px;
+				left: 1px;
+				font-size: 22px;
+				visibility: hidden;
+			}
+		}
+	}
+
+	.wpcf7-radio,
+	.wpcf7-checkbox {
+		display: flex;
+		flex-direction: column;
+		margin-top: 20px;
 	}
 
 	input:not([type=submit]) {
@@ -512,56 +560,6 @@ label {
 	}
 }
 
-.wpcf7 {
-	&-list-item {
-		margin-left: 0;
-		margin-bottom: 20px;
-
-		label {
-			position: relative;
-			margin-bottom: 20px;
-
-			input {
-				position: absolute;
-				opacity: 0;
-			}
-		}
-
-		input {
-			&:checked {
-				& + span:after {
-					visibility: visible;
-				}
-			}
-		}
-
-		&-label {
-			position: relative;
-			display: inline-flex;
-			align-items: flex-start;
-
-			&:before {
-				display: block;
-				width: 20px;
-				height: 20px;
-				border: 1px solid var(--color-base);
-				border-radius: 4px;
-				margin-right: 20px;
-			}
-
-			&:after {
-				content: '\2713';
-				color: var(--color-base);
-				position: absolute;
-				top: -5px;
-				left: 1px;
-				font-size: 22px;
-				visibility: hidden;
-			}
-		}
-	}
-}
-
 .popup {
 	position: fixed;
 	top: 50%;
@@ -582,6 +580,15 @@ label {
 		opacity: 1;
 		visibility: visible;
 		display: block;
+	}
+
+	iframe {
+		width: 100%;
+		height: 400px;
+
+		@media all and (min-width:992px) {
+			min-height: 70vh;
+		}
 	}
 }
 
@@ -605,7 +612,7 @@ label {
 	}
 }
 
-#wpadminbar .quicklinks ul {
+#wp-admin-bar-top-secondary {
 	display: none !important;
 }
 

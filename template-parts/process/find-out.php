@@ -18,7 +18,7 @@
 			</div>
 
 			<div class="col-6">
-				<img src="<?= wp_get_attachment_url( $f[ 'image' ], 'full' ) ?>">
+				<img src="<?= wp_get_attachment_image_src( $f[ 'image' ], 'thumb-50' )[0] ?>">
 			</div>
 		</div>
 

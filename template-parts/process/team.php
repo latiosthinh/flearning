@@ -13,24 +13,13 @@
 
 			<div class="col-3">
 				<div class="item">
-					<img src="<?= wp_get_attachment_url( $t[ 'image' ], 'full' ) ?>">
+					<img src="<?= wp_get_attachment_image_src( $t[ 'image' ], 'thumb-team' )[0] ?>">
 					<h4><?= $t[ 'name' ] ?></h4>
 					<p><?= $t[ 'position' ] ?></p>
 				</div>
 			</div>
 
 			<?php endforeach; ?>
-		</div>
-	</div>
-</section>
-
-<section class="process-contact">
-	<div class="container">
-		<div class="content tac">
-			<img src="<?= NOVUS_IMG . '/hand.png' ?>">
-			<h2 class="h1">Interesting in creating an <br> animated video?</h2>
-
-			<a class="button-3" href="<?= get_permalink( get_page_by_path( 'contact' ) ) ?>">Contact us</a>
 		</div>
 	</div>
 </section>

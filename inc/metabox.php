@@ -3,6 +3,20 @@ add_filter( 'rwmb_meta_boxes', 'novus_metabox' );
 function novus_metabox( $meta_boxes ) {
 	$prefix = '';
 
+	// $meta_boxes[] = [
+	// 	'title'      => __( 'Extra settings', 'novus' ),
+	// 	'post_types' => ['post', 'page', 'ebook', 'case-study'],
+	// 	'context'    => 'side',
+	// 	'fields'     => [
+	// 		[
+	// 			'name' => __( 'Checkbox', 'your-text-domain' ),
+	// 			'id'   => 'footer_form',
+	// 			'type' => 'checkbox',
+	// 			'std'  => 0,
+	// 		],
+	// 	],
+	// ];
+
 	$meta_boxes[] = [
 		'title'      => __( 'Home Settings', 'novus' ),
 		'post_types' => ['page'],
@@ -464,11 +478,6 @@ function novus_metabox( $meta_boxes ) {
 				'id'   => $prefix . 'image',
 				'type' => 'single_image',
 			],
-			[
-				'name' => __( 'Excerpt', 'novus' ),
-				'id'   => $prefix . 'short_description',
-				'type' => 'wysiwyg',
-			],
 		],
 	];
 
@@ -480,6 +489,15 @@ function novus_metabox( $meta_boxes ) {
 				'name' => __( 'Banner', 'novus' ),
 				'id'   => $prefix . 'banner',
 				'type' => 'single_image',
+			],
+			[
+				'name'          => 'Color picker',
+				'id'            => 'banner_color',
+				'type'          => 'color',
+				'alpha_channel' => true,
+				'js_options'    => [
+					'palettes' => [ '#F7941E', '#474747', '#5766C3' ]
+				],
 			],
 			[
 				'name' => __( 'Excerpt', 'novus' ),
@@ -501,7 +519,7 @@ function novus_metabox( $meta_boxes ) {
 			[
 				'name' => __( 'Table of content', 'novus' ),
 				'id'   => $prefix . 'table_content',
-				'type' => 'single_image',
+				'type' => 'image_advanced',
 			],
 			[
 				'name' => __( 'Excerpt', 'novus' ),
@@ -637,27 +655,6 @@ function novus_metabox( $meta_boxes ) {
 		],
 	];
 
-	$meta_boxes[] = [ // Contact
-		'title'      => __( 'Infographic Settings', 'novus' ),
-		'post_types' => ['page'],
-		'include'    => [
-			'relation' => 'OR',
-			'template' => ['template-pages/contact.php'],
-		],
-		'fields'     => [
-			[
-				'name' => __( 'Banner', 'novus' ),
-				'id'   => $prefix . 'banner',
-				'type' => 'single_image',
-			],
-			[
-				'name' => __( 'Form shortcode', 'novus' ),
-				'id'   => $prefix . 'form',
-				'type' => 'text',
-			],
-		],
-	];
-
 	$meta_boxes[] = [ // Archive banner
 		'title'      => __( 'Banner Settings', 'novus' ),
 		'post_types' => ['page'],
@@ -681,8 +678,9 @@ function novus_metabox( $meta_boxes ) {
 						'name'    => 'Choose Type',
 						'type'    => 'select',
 						'options' => [
-							'blog'  => 'Blog',
-							'ebook' => 'eBook',
+							'blog'      => 'Blog',
+							'ebook'     => 'eBook',
+							'casestudy' => 'Case Studies',
 						]
 					],
 					[
@@ -694,35 +692,18 @@ function novus_metabox( $meta_boxes ) {
 						],
 					],
 					[
-						'name'    => __( 'Image', 'novus' ),
-						'id'      => $prefix . 'layout_image',
-						'type'    => 'single_image',
+						'name'          => 'Color picker',
+						'id'            => 'banner_color',
+						'type'          => 'color',
+						'alpha_channel' => true,
+						'js_options'    => [
+							'palettes' => [ '#F7941E', '#474747', '#5766C3' ]
+						],
 					],
 					[
-						'name'        => __( 'Button', 'novus' ),
-						'id'          => $prefix . 'layout_button',
-						'type'        => 'group',
-						'collapsible' => true,
-						'clone'       => true,
-						'sort_clone'  => true,
-						'fields'      => [
-							[
-								'name' => 'Open video?',
-								'id'   => 'is_video',
-								'type' => 'checkbox',
-								'std'  => 0,
-							],
-							[
-								'id'      => 'button_text',
-								'name'    => 'Text',
-								'type'    => 'text',
-							],
-							[
-								'id'      => 'button_url',
-								'name'    => 'Url/Video ID',
-								'type'    => 'text',
-							],
-						]
+						'name' => __( 'Image', 'novus' ),
+						'id'   => $prefix . 'layout_image',
+						'type' => 'single_image',
 					],
 				]
 			]
@@ -775,84 +756,84 @@ function novus_metabox( $meta_boxes ) {
 						'id'      => $prefix . 'preview_1',
 						'name'    => 'Preview',
 						'type'    => 'custom_html',
-						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-1.png' . '" />',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-1.jpg' . '" />',
 						'visible' => [ 'style', 'in', [1] ]
 					],
 					[
 						'id'      => $prefix . 'preview_2',
 						'name'    => 'Preview',
 						'type'    => 'custom_html',
-						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-2.png' . '" />',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-2.jpg' . '" />',
 						'visible' => [ 'style', 'in', [2] ]
 					],
 					[
 						'id'      => $prefix . 'preview_3',
 						'name'    => 'Preview',
 						'type'    => 'custom_html',
-						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-3.png' . '" />',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-3.jpg' . '" />',
 						'visible' => [ 'style', 'in', [3] ]
 					],
 					[
 						'id'      => $prefix . 'preview_4',
 						'name'    => 'Preview',
 						'type'    => 'custom_html',
-						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-4.png' . '" />',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-4.jpg' . '" />',
 						'visible' => [ 'style', 'in', [4] ]
 					],
 					[
 						'id'      => $prefix . 'preview_5',
 						'name'    => 'Preview',
 						'type'    => 'custom_html',
-						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-5.png' . '" />',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-5.jpg' . '" />',
 						'visible' => [ 'style', 'in', [5] ]
 					],
 					[
 						'id'      => $prefix . 'preview_6',
 						'name'    => 'Preview',
 						'type'    => 'custom_html',
-						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-6.png' . '" />',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-6.jpg' . '" />',
 						'visible' => [ 'style', 'in', [6] ]
 					],
 					[
 						'id'      => $prefix . 'preview_7',
 						'name'    => 'Preview',
 						'type'    => 'custom_html',
-						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-7.png' . '" />',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-7.jpg' . '" />',
 						'visible' => [ 'style', 'in', [7] ]
 					],
 					[
 						'id'      => $prefix . 'preview_8',
 						'name'    => 'Preview',
 						'type'    => 'custom_html',
-						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-8.png' . '" />',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-8.jpg' . '" />',
 						'visible' => [ 'style', 'in', [8] ]
 					],
 					[
 						'id'      => $prefix . 'preview_9',
 						'name'    => 'Preview',
 						'type'    => 'custom_html',
-						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-9.png' . '" />',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-9.jpg' . '" />',
 						'visible' => [ 'style', 'in', [9] ]
 					],
 					[
 						'id'      => $prefix . 'preview_10',
 						'name'    => 'Preview',
 						'type'    => 'custom_html',
-						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-10.png' . '" />',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-10.jpg' . '" />',
 						'visible' => [ 'style', 'in', [10] ]
 					],
 					[
 						'id'      => $prefix . 'preview_11',
 						'name'    => 'Preview',
 						'type'    => 'custom_html',
-						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-11.png' . '" />',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-11.jpg' . '" />',
 						'visible' => [ 'style', 'in', [11] ]
 					],
 					[
 						'id'      => $prefix . 'preview_12',
 						'name'    => 'Preview',
 						'type'    => 'custom_html',
-						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-12.png' . '" />',
+						'std'     => '<img style="max-width: 600px" src="' . NOVUS_IMG . '/style-12.jpg' . '" />',
 						'visible' => [ 'style', 'in', [12] ]
 					],
 					[
@@ -879,13 +860,33 @@ function novus_metabox( $meta_boxes ) {
 						'options' => [
 							'tinymce' => true,
 						],
-						'visible' => [ 'style', 'in', [1,3,4,5,6,7,8,9,10,11] ]
+						'visible' => [ 'style', 'in', [1,3,4,5,6,7,8,9,10,11,12] ]
 					],
 					[
 						'name'    => __( 'Image', 'novus' ),
 						'id'      => $prefix . 'layout_image',
 						'type'    => 'single_image',
 						'visible' => [ 'style', 'in', [1,2,4,6,7,9] ]
+					],
+					[
+						'name'       => __( 'Image Width', 'novus' ),
+						'id'         => $prefix . 'layout_image_width',
+						'type'       => 'slider',
+						'suffix'     => ' %',
+						'js_options' => [
+							'min'  => 0,
+							'max'  => 100,
+							'step' => 1,
+						],
+						'std' => 100,
+						'visible' => [ 'style', 'in', [1,2,4,6,7,9] ]
+					],
+					[
+						'name'    => 'Small Image Banner?',
+						'id'      => 'small',
+						'type'    => 'checkbox',
+						'std'     => 0,
+						'visible' => [ 'style', 'in', [1] ]
 					],
 					[
 						'name'    => __( 'Text', 'novus' ),
@@ -984,6 +985,11 @@ function novus_metabox( $meta_boxes ) {
 								'type'    => 'text',
 							],
 							[
+								'id'      => 'label',
+								'name'    => 'Label',
+								'type'    => 'text',
+							],
+							[
 								'id'      => 'text',
 								'name'    => 'Text',
 								'type'    => 'wysiwyg',
@@ -1012,6 +1018,11 @@ function novus_metabox( $meta_boxes ) {
 							[
 								'id'      => 'title',
 								'name'    => 'Title',
+								'type'    => 'text',
+							],
+							[
+								'id'      => 'url',
+								'name'    => 'Url',
 								'type'    => 'text',
 							],
 							[

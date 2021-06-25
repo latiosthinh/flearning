@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-6">
 			<a class="entry-thumbnail" href="<?php the_permalink() ?>">
-				<?php the_post_thumbnail( 'thumb-graphic' ) ?>
+				<?php the_post_thumbnail( 'thumb-post' ) ?>
 			</a>
 		</div>
 

@@ -8,42 +8,15 @@ $blocks = rwmb_meta( 'layout', null, $banner_id );
 foreach ( $blocks as $b ) :
 	if ( 'ebook' === $b['style'] ) :
 ?>
-<section class="page-block" style="background-image:url(<?= wp_get_attachment_url( $b[ 'layout_background' ], 'full' ) ?>)">
+<section class="page-block">
 	<div class="container">
-		<div class="row">
-			<div class="col-5">
-				<?= $b[ 'layout_content' ] ?>
-
-				<?php if ( $b['layout_button'] ) : ?>
-				<div class="dflex jcc button-list">
-					<?php foreach ( $b['layout_button'] as $button ) : ?>
-						<?php if ( $button['is_video'] ) : ?>
-
-						<a class="button-3 popup-open" class="popup-open" data-popup="<?= $button['button_url'] ?>">
-							<img src="<?= NOVUS_IMG . '/play-4.svg' ?>">
-							<?= $button['button_text'] ?>
-						</a>
-
-						<?php else : ?>
-
-						<a class="button-3" href="<?= $button['button_url'] ?>">
-							<?= $button['button_text'] ?>
-						</a>
-
-						<?php endif; ?>
-					<?php endforeach; ?>
-				</div>
-				<?php endif; ?>
+		<div class="block-style-9 clw dflex flex-wrap aic" style="background-color:<?= $b['banner_color'] ?>">
+			<div class="col-6">
+				<?= $b[ 'layout_content' ]; ?>
 			</div>
 
-			<div class="col-7 video">
-				<img src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>">
-
-				<?php if ( $b[ 'layout_video' ] ) : ?>
-				<button class="play popup-open" data-popup="<?= $b[ 'layout_video' ]; ?>">
-					<img src="<?= NOVUS_IMG . '/play-2.svg' ?>">
-				</button>
-				<?php endif; ?>
+			<div class="col-6">
+				<img style="max-height:400px;object-fit:contain" src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>">
 			</div>
 		</div>
 	</div>
@@ -53,86 +26,9 @@ foreach ( $blocks as $b ) :
 endforeach;
 ?>
 
-<section class="cs-list">
+<section class="ebook-list page-block">
 	<div class="container">
 		<div class="row">
-			<div class="col-12">
-				<h2 class="h2">Featured case studies</h2>
-
-				<p>Hand-picked case study that may help</p>
-			</div>
-
-			<?php
-			$cs = new WP_Query( [
-				'post_type'      => 'case-study',
-				'posts_per_page' => 3,
-			] );
-			?>
-			<div class="col-12">
-				<div class="splide ebook-slider">
-					<div class="splide__track">
-						<div class="splide__list">
-							<?php while ( $cs->have_posts() ) : $cs->the_post(); ?>
-							<article class="splide__slide">
-								<a href="<?= get_permalink() ?>" class="entry-thumbnail">
-									<?php the_post_thumbnail( 'full' ) ?>
-								</a>
-								<div class="entry-content">
-									<h3><?= get_the_title() ?></h3>
-									<?= rwmb_meta( 'short_description', null, get_the_ID() ) ?>
-
-									<a class="button-4" href="<?= get_permalink() ?>">Find out how</a>
-								</div>
-							</article>
-							<?php endwhile; ?>
-						</div>
-					</div>
-
-					<div class="splide__arrows">
-						<button class="splide__arrow splide__arrow--prev" aria-label="Go to last slide" aria-controls="splide01-track">
-							<img src="<?= NOVUS_IMG . '/left-grey.svg' ?>">
-						</button>
-						<button class="splide__arrow splide__arrow--next" aria-label="Next slide" aria-controls="splide01-track">
-							<img src="<?= NOVUS_IMG . '/right-grey.svg' ?>">
-						</button>
-					</div>
-				</div>
-			</div>
-
-			<?php
-			$cs2 = new WP_Query( [
-				'post_type'      => 'case-study',
-				'posts_per_page' => 3,
-				'offset'         => 3,
-			] );
-			
-			while ( $cs->have_posts() ) : $cs->the_post(); ?>
-			<div class="col-4">
-				<article class="cs-normal">
-					<a href="<?= get_permalink() ?>" class="entry-thumbnail">
-						<?php the_post_thumbnail( 'thumb-graph' ) ?>
-					</a>
-					<div class="entry-content">
-						<h3><?= get_the_title() ?></h3>
-						<p><?= get_the_excerpt() ?></p>
-
-						<a class="button-4" href="<?= get_permalink() ?>">Find out how</a>
-					</div>
-				</article>
-			</div>
-			<?php endwhile; ?>
-		</div>
-		<hr>
-	</div>
-</section>
-
-<section class="ebook-list">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="h2">Free EBooks</h2>
-			</div>
-
 			<div class="col-8">
 				<div class="row">
 					<?php

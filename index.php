@@ -21,42 +21,15 @@ $blocks = rwmb_meta( 'layout', null, $banner_id );
 foreach ( $blocks as $b ) :
 	if ( 'blog' === $b['style'] ) :
 ?>
-<section class="page-block" style="background-image:url(<?= wp_get_attachment_url( $b[ 'layout_background' ], 'full' ) ?>)">
+<section class="page-block">
 	<div class="container">
-		<div class="row">
-			<div class="col-5">
-				<?= $b[ 'layout_content' ] ?>
-
-				<?php if ( $b['layout_button'] ) : ?>
-				<div class="dflex jcc button-list">
-					<?php foreach ( $b['layout_button'] as $button ) : ?>
-						<?php if ( $button['is_video'] ) : ?>
-
-						<a class="button-3 popup-open" class="popup-open" data-popup="<?= $button['button_url'] ?>">
-							<img src="<?= NOVUS_IMG . '/play-4.svg' ?>">
-							<?= $button['button_text'] ?>
-						</a>
-
-						<?php else : ?>
-
-						<a class="button-3" href="<?= $button['button_url'] ?>">
-							<?= $button['button_text'] ?>
-						</a>
-
-						<?php endif; ?>
-					<?php endforeach; ?>
-				</div>
-				<?php endif; ?>
+		<div class="block-style-9 clw dflex flex-wrap aic" style="background-color:<?= $b['banner_color'] ?>">
+			<div class="col-6">
+				<?= $b[ 'layout_content' ]; ?>
 			</div>
 
-			<div class="col-7 video">
-				<img src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>">
-
-				<?php if ( $b[ 'layout_video' ] ) : ?>
-				<button class="play popup-open" data-popup="<?= $b[ 'layout_video' ]; ?>">
-					<img src="<?= NOVUS_IMG . '/play-2.svg' ?>">
-				</button>
-				<?php endif; ?>
+			<div class="col-6">
+				<img style="max-height:400px;object-fit:contain" src="<?= wp_get_attachment_url( $b[ 'layout_image' ], 'full' ) ?>">
 			</div>
 		</div>
 	</div>

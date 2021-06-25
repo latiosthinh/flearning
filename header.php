@@ -25,14 +25,14 @@
 <main id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'novus' ); ?></a>
 
-	<header id="masthead" class="site-header">
+	<header id="masthead" class="site-header" style="<?= is_user_logged_in() ? 'margin-top:32px' : '' ?>">
 		<div class="container">
 			<?= the_custom_logo(); ?>
 
 			<?php wp_nav_menu( ['menu' => 'menu-1'] ); ?>
 
 			<div class="menu-right">
-				<a class="grey" href="<?= get_permalink( get_page_by_path( 'faqs' ) ) ?>">FAQs</a>
+				<a class="grey" href="<?= get_permalink( get_page_by_path( 'faq' ) ) ?>">FAQs</a>
 
 				<a class="button-1 font-brandon" href="<?= get_permalink( get_page_by_path( 'contact' ) ) ?>">Contact us</a>
 			</div>

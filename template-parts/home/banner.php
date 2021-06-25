@@ -12,7 +12,7 @@
 				</div>
 
 				<p class="scroll dflex aic">
-					<img src="<?= NOVUS_IMG . '/scrolldown.svg' ?>" alt="scroll-down">
+					<img width="40" height="40" src="<?= NOVUS_IMG . '/scrolldown.svg' ?>" alt="scroll-down">
 					Scroll down to explore more
 				</p>
 			</div>
@@ -21,7 +21,7 @@
 				<?php $video = rwmb_meta( 'banner_video', null, get_queried_object_id() ); ?>
 				<img src="<?= rwmb_meta( 'banner', null, get_queried_object_id() )[ 'full_url' ] ?>">
 				<button class="play popup-open" data-popup="<?= $video ?>">
-					<img src="<?= NOVUS_IMG . '/play-1.svg' ?>">
+					<img src="<?= NOVUS_IMG . '/play-1.png' ?>" style="width:56px;height:56px;">
 				</button>
 			</div>
 		</div>

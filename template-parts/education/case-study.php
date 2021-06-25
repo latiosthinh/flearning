@@ -65,7 +65,7 @@
 				<div class="video">
 					<img src="<?= get_the_post_thumbnail_url( get_the_ID(), 'full' ) ?>">
 					<button class="play" data-video="<?= rwmb_meta( 'video_url', null, get_queried_object_id() ) ?>">
-						<img src="<?= NOVUS_IMG . '/play-1.svg' ?>">
+						<img src="<?= NOVUS_IMG . '/play-1.png' ?>" style="width:56px;height:56px;">
 					</button>
 				</div>
 			<?php endwhile; ?>

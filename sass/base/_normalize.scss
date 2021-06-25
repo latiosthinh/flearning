@@ -2,8 +2,8 @@
 	font-family: 'BrandonText';
 	src: url( 'fonts/BrandonText-Regular.otf' ) format( 'opentype' ),
 		url('fonts/BrandonText-Regular.woff2') format('woff2'),
-        url('fonts/BrandonText-Regular.woff') format('woff'),
-        url('fonts/BrandonText-Regular.ttf') format('truetype');
+		url('fonts/BrandonText-Regular.woff') format('woff'),
+		url('fonts/BrandonText-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-display: swap;
 }
@@ -12,12 +12,40 @@
 	font-family: 'BrandonText';
 	src: url( 'fonts/BrandonText-Bold.otf' ) format( 'opentype' ),
 		url('fonts/BrandonText-Bold.woff2') format('woff2'),
-        url('fonts/BrandonText-Bold.woff') format('woff'),
-        url('fonts/BrandonText-Bold.ttf') format('truetype');
+		url('fonts/BrandonText-Bold.woff') format('woff'),
+		url('fonts/BrandonText-Bold.ttf') format('truetype');
 	font-weight: 700;
 	font-display: swap;
 }
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url( 'fonts/OpenSans-Regular.ttf' ) format( 'truetype' );
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url( 'fonts/OpenSans-Italic.ttf' ) format( 'truetype' );
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url( 'fonts/OpenSans-SemiBold.ttf' ) format( 'truetype' );
+	font-weight: 600;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url( 'fonts/OpenSans-Bold.ttf' ) format( 'truetype' );
+	font-weight: 700;
+	font-display: swap;
+}
 
 :root {
 	--font-main: 'BrandonText';

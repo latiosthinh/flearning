@@ -19,8 +19,8 @@
 			<div class="col-4">
 				<div class="item <?= 'item-' . ++$ii ?>">
 					<div class="avatar">
-						<img src="<?= NOVUS_IMG . '/feedback-bg.svg' ?>" class="bg">
-						<img src="<?= wp_get_attachment_url( $f['avatar'] ) ?>">
+						<img width="100" height="107" src="<?= NOVUS_IMG . '/feedback-bg.svg' ?>" class="bg">
+						<img src="<?= wp_get_attachment_image_src( $f['avatar'], 'thumb-testimonial')[0]; ?>">
 					</div>
 
 					<div class="message">

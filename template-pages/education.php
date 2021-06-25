@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Education
+ * Template Name: Landing Page
  */
 get_header();
 

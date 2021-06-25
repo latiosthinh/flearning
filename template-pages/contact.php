@@ -4,7 +4,7 @@
  */
 get_header();
 
-get_template_part( 'template-parts/layout.php' );
+get_template_part( 'template-parts/layout' );
 
 the_content();
 

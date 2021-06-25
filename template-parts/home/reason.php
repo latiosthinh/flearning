@@ -18,7 +18,7 @@
 
 				<div class="item">
 					<div class="icon-wrapper">
-						<img style="width:<?= $i['width'] ?>px;height:<?= $i['height'] ?>px" src="<?= wp_get_attachment_url( $i['icon'] ) ?>">
+						<img width="<?= $i['width'] ?>" height="<?= $i['height'] ?>" src="<?= wp_get_attachment_url( $i['icon'] ) ?>">
 					</div>
 
 					<p class="h4 bold"><?= $i['title'] ?></p>

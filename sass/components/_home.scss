@@ -32,6 +32,10 @@
 .home-partner {
 	h3 {
 		margin-bottom: 80px;
+
+		@media all and (max-width:991px) {
+			margin-bottom: 20px;
+		}
 	}
 
 	img {
@@ -98,11 +102,6 @@
 }
 
 .home-reason {
-	.image {
-		img {
-			max-width: 80%;
-		}
-	}
 	.item {
 		position: relative;
 		padding-left: 15%;
@@ -118,6 +117,7 @@
 			position: absolute;
 			top: 0;
 			right: 0;
+			object-fit: contain;
 		}
 	}
 
@@ -135,6 +135,16 @@
 			margin-top: 0;
 			margin-bottom: 64px;
 		}
+
+		.button-3 {
+			background: #fff;
+			color: var(--color-base);
+
+			&:hover {
+				background: var(--color-black);
+				color: #fff;
+			}
+		}
 	}
 }
 
@@ -146,7 +156,7 @@
 
 	.item {
 		padding: 56px;
-		height: 100%;
+		height: 450px;
 		background: #fff;
 		border-radius: 40px;
 		box-shadow: 0px 16px 32px -8px rgba(0, 0, 0, 0.15);
@@ -155,18 +165,28 @@
 			padding: 25px;
 		}
 
+		@media all and (max-width:1400px) {
+			height: 300px;
+		}
+
+		@media all and (max-width:991px) {
+			height: auto;
+		}
+
 		p {
 			margin: 24px 0 32px;
 		}
 
 		.icon {
 			width: 80px;
+			height: 70px;
 			margin-bottom: 56px;
 			object-fit: contain;
 
 			@media all and (max-width:1440px) {
 				margin-bottom: 25px;
 				width: 60px;
+				height: 60px;
 			}
 		}
 	}
@@ -174,6 +194,7 @@
 	.image {
 		img {
 			border-radius: 24px;
+			max-width: 100%;
 		}
 	}
 }
@@ -190,6 +211,13 @@
 		}
 	}
 
+	.video-slider {
+		@media all and (min-width:992px) {
+			max-width: 80%;
+			margin: 0 auto;
+		}
+	}
+
 	.splide__track {
 		z-index: 4;
 	}
@@ -202,10 +230,14 @@
 			max-width: 80%;
 			margin: 0 auto;
 		}
+
+		@media all and (max-width:991px) {
+			max-width: 100%;
+		}
 	}
 
 	.splide__arrows {
-		width: calc( 100% + 100px );
+		width: 1380px;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -215,11 +247,16 @@
 		justify-content: space-between;
 
 		@media all and (max-width:1400px) {
-			width: 100%;
+			width: 1055px;
+		}
+
+		@media all and (max-width:) {
+		
 		}
 
 		@media all and (max-width:991px) {
-			display: none;
+			top: calc( 100% + 50px );
+			width: 80px;
 		}
 	}
 
@@ -278,8 +315,9 @@
 			position: absolute;
 			width: calc( 100% - 20px );
 			border-radius: 50%;
-			top: 10px;
+			top: 0;
 			left: 10px;
+			object-fit: contain;
 		}
 	}
 

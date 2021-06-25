@@ -12,23 +12,31 @@ get_header();
 
 <section class="single-post-banner">
 	<div class="container">
-		<div class="single-post-banner__content"
-			style="background-image:url(<?= rwmb_meta( 'banner', null, get_queried_object_id() )[ 'full_url' ] ?>)">
-			<h1><?php the_title(); ?></h1>
+		<div class="row">
+			<div class="single-post-banner__content dflex flex-wrap aic"
+				style="background-color:<?= rwmb_meta( 'banner_color', null, get_queried_object_id() ) ?>">
+				<div class="col-6">
+					<h1><?php the_title(); ?></h1>
 
-			<div class="entry-info">
-				<span><?= get_the_date() ?> |</span>
+					<div class="entry-info">
+						<span><?= get_the_date() ?> |</span>
 
-				<?php
-				$cats = get_the_category();
-				if ( ! empty( $cats ) ) :
-				?>
+						<?php
+						$cats = get_the_category();
+						if ( ! empty( $cats ) ) :
+						?>
 
-				Blog - <a href="<?= get_category_link( $cats[0]->term_id ) ?>">
-					<?= $cats[0]->name ?>
-				</a>
+						Blog - <a href="<?= get_category_link( $cats[0]->term_id ) ?>">
+							<?= $cats[0]->name ?>
+						</a>
 
-				<?php endif; ?>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<div class="col-6">
+					<img style="max-height:360px" src="<?= rwmb_meta( 'banner', null, get_queried_object_id() )['sizes'][ 'thumb-50' ]['url'] ?>">
+				</div>
 			</div>
 		</div>
 	</div>
