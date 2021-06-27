@@ -45,6 +45,6 @@
 
 	<div class="ebook-download">
 		<img src="<?= NOVUS_IMG . '/ebook-download.jpg' ?>">
-		<a href="<?= get_post_type_archive_link( 'ebook' ) ?>" class="button-3">Download now</a>
+		<a href="<?= get_post_type_archive_link( 'ebook' ) ?>" class="button-5">Download now</a>
 	</div>
 </div>

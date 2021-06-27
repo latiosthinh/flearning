@@ -7,7 +7,7 @@
 		}
 	}
 
-	.button-1 {
+	.button-3 {
 		margin-top: 56px;
 	}
 }
@@ -202,7 +202,7 @@
 		}
 	}
 
-	.button-1 {
+	.button-3 {
 		display: block;
 		margin: 0 auto;
 	}
@@ -443,6 +443,7 @@ article {
 
 .pagination {
 	margin: 0 auto;
+	flex: 0 0 100%;
 
 	.nav-links {
 		display: flex;

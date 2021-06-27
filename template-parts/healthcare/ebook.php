@@ -9,7 +9,7 @@
 
 				<p><?= rwmb_meta( 'ebook_content', null, get_queried_object_id() ) ?></p>
 
-				<a href="#" class="button-1">Download Ebooks</a>
+				<a href="#" class="button-3">Download Ebooks</a>
 			</div>
 		</div>
 	</div>

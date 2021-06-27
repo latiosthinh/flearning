@@ -8,7 +8,7 @@
 				animation looks like?
 				</h2>
 
-				<a href="#" class="button-1">See our examples</a>
+				<a href="#" class="button-3">See our examples</a>
 			</div>
 
 			<div class="col-8">

@@ -30,7 +30,7 @@
 				<div class="excerpt">
 					<?= rwmb_meta( 'short_description' ) ?>
 				</div>
-				<a href="<?= get_permalink() ?>" class="button-1">Detail Case Study</a>
+				<a href="<?= get_permalink() ?>" class="button-3">Detail Case Study</a>
 			</div>
 
 			<div class="col-6 video">

@@ -35,7 +35,7 @@ get_header();
 				</div>
 
 				<div class="col-6">
-					<img style="max-height:360px" src="<?= rwmb_meta( 'banner', null, get_queried_object_id() )['sizes'][ 'thumb-50' ]['url'] ?>">
+					<img style="max-height:360px;object-fit:contain" src="<?= rwmb_meta( 'banner', null, get_queried_object_id() )['sizes'][ 'thumb-50' ]['url'] ?>">
 				</div>
 			</div>
 		</div>

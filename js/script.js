@@ -19,13 +19,6 @@ document.addEventListener( 'DOMContentLoaded', function() {
     scriptTag.src = `${php_data.base_url}/wp-content/themes/flearning/js/splide.js`;
     document.body.appendChild( scriptTag );
 
-	// const link = document.createElement( 'link' );
-
-	// link.rel    = 'stylesheet';
-	// link.href   = `${php_data.base_url}/wp-content/themes/flearning/style-defer.css`;
-	
-	// header.appendChild( link );
-
 	if ( window.innerWidth > 992 ) {
 		window.addEventListener( 'scroll', function() {
 			if ( window.scrollY > 20 ) {
@@ -136,6 +129,14 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	if ( backToTop ) {
 		backToTop.addEventListener( 'click', function() {
 			window.scroll({top: 0, left: 0, behavior: 'smooth'});
+		} )
+	}
+
+	// Select
+	const selects = document.querySelectorAll( 'select' );
+	if ( selects ) {
+		selects.forEach( s => {
+			const choice = new Choices( s );
 		} )
 	}
 });

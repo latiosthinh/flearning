@@ -28,6 +28,20 @@
 	@media all and (max-width:991px) {
 		margin-top: 60px;
 	}
+
+	.wpcf7 {
+		input:not([type=submit]),
+		textarea {
+			padding: 20px 15px 20px 56px;
+		}
+	}
+}
+
+.choices__inner {
+	background-color: #fff;
+	border: 0;
+	border-radius: 999px;
+	padding: 15px 20px !important;
 }
 
 .site-footer {

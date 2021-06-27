@@ -6,7 +6,7 @@
 				<?= rwmb_meta( 'banner_title', null, get_queried_object_id() ) ?>
 
 				<div class="cta">
-					<a href="<?= rwmb_meta( 'banner_button_url', null, get_queried_object_id() ) ?>" class="button-1">
+					<a href="<?= rwmb_meta( 'banner_button_url', null, get_queried_object_id() ) ?>" class="button-3">
 						<?= rwmb_meta( 'banner_button_text', null, get_queried_object_id() ) ?>
 					</a>
 				</div>

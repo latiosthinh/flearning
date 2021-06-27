@@ -10,7 +10,7 @@
 				<p>with accessible and inspiring animated videos.</p>
 
 				<div class="cta dflex aic">
-					<a href="#" class="button-1">Get free sample</a>
+					<a href="#" class="button-3">Get free sample</a>
 					<a href="#" class="button-4">
 						<img src="<?= NOVUS_IMG . '/play-4.svg' ?>">
 						Watch Reel

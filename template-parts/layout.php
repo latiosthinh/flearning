@@ -131,7 +131,7 @@ foreach ( $blocks as $b ) :
 
 							<?php else : ?>
 
-							<a class="button-1" href="<?= $button['button_url'] ?>">
+							<a class="button-3" href="<?= $button['button_url'] ?>">
 								<?= $button['button_text'] ?>
 							</a>
 
@@ -171,7 +171,7 @@ foreach ( $blocks as $b ) :
 
 							<?php else : ?>
 
-							<a class="button-1" href="<?= $button['button_url'] ?>">
+							<a class="button-3" href="<?= $button['button_url'] ?>">
 								<?= $button['button_text'] ?>
 							</a>
 
@@ -228,7 +228,7 @@ foreach ( $blocks as $b ) :
 
 							<?php else : ?>
 
-							<a class="button-1" href="<?= $button['button_url'] ?>">
+							<a class="button-3" href="<?= $button['button_url'] ?>">
 								<?= $button['button_text'] ?>
 							</a>
 
@@ -290,7 +290,7 @@ foreach ( $blocks as $b ) :
 
 							<?php if ( $t['button_url'] ) : ?>
 							<div>
-								<a href="<?= $t['button_url'] ?>" class="button-1"><?= $t['button_text'] ?></a>
+								<a href="<?= $t['button_url'] ?>" class="button-3"><?= $t['button_text'] ?></a>
 							</div>
 							<?php endif; ?>
 						</div>
@@ -378,7 +378,7 @@ foreach ( $blocks as $b ) :
 
 							<?php else : ?>
 
-							<a class="button-1" href="<?= $button['button_url'] ?>">
+							<a class="button-3" href="<?= $button['button_url'] ?>">
 								<?= $button['button_text'] ?>
 							</a>
 

@@ -97,6 +97,11 @@ function novus_scripts() {
 	wp_dequeue_style( 'wp-block-library-theme' );
 	wp_dequeue_style( 'wc-block-style' );
 	wp_dequeue_style( 'contact-form-7' );
+
+	if ( ! is_front_page() ) {
+		wp_enqueue_style( 'novus-choice', 'https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css', [], NOVUS_VERSION );
+		wp_enqueue_script( 'novus-choice', 'https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js', [], NOVUS_VERSION, true );
+	}
 	
 	wp_enqueue_style( 'novus-style', get_stylesheet_uri(), [], NOVUS_VERSION );
 	wp_enqueue_script( 'novus-script', NOVUS_JS . '/script.js', [], NOVUS_VERSION, true );

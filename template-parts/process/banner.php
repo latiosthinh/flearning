@@ -9,7 +9,7 @@
 
 				<p>From an idea to beautiful and engaging animation contains <br> lots of work from a group of creatives.</p>
 
-				<a href="#" class="button-1">Get Free Sample</a>
+				<a href="#" class="button-3">Get Free Sample</a>
 			</div>
 
 			<div class="col-7">

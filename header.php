@@ -34,7 +34,7 @@
 			<div class="menu-right">
 				<a class="grey" href="<?= get_permalink( get_page_by_path( 'faq' ) ) ?>">FAQs</a>
 
-				<a class="button-1 font-brandon" href="<?= get_permalink( get_page_by_path( 'contact' ) ) ?>">Contact us</a>
+				<a class="button-3 font-brandon" href="<?= get_permalink( get_page_by_path( 'contact' ) ) ?>">Contact us</a>
 			</div>
 
 			<button id="nav-control">
