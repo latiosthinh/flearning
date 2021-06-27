@@ -95,13 +95,13 @@ foreach ( $blocks as $b ) :
 					<?php foreach ( $b['layout_button'] as $button ) : ?>
 						<?php if ( $button['is_video'] ) : ?>
 
-						<a class="button-3 popup-open" class="popup-open" data-popup="<?= $button['button_url'] ?>">
+						<a class="button-5 popup-open" class="popup-open" data-popup="<?= $button['button_url'] ?>">
 							<?= $button['button_text'] ?>
 						</a>
 
 						<?php else : ?>
 
-						<a class="button-3" href="<?= $button['button_url'] ?>">
+						<a class="button-5" href="<?= $button['button_url'] ?>">
 							<?= $button['button_text'] ?>
 						</a>
 
