@@ -22,7 +22,7 @@
 						</div>
 
 						<div class="col-5 image">
-							<img src="<?= wp_get_attachment_url( $b['image'] ) ?>">
+							<img class="lazy" data-src="<?= wp_get_attachment_url( $b['image'] ) ?>">
 						</div>
 					</div>
 				</div>

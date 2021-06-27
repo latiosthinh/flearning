@@ -131,8 +131,6 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		} )
 	}
 
-	
-
 	// Back to top
 	const backToTop = document.querySelector( '#back-to-top' )
 	if ( backToTop ) {

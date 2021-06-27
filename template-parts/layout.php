@@ -10,7 +10,7 @@ foreach ( $blocks as $b ) :
 		<?php if ( 1 == $b['style'] ) : ?>
 		<!-- ************* Style 1 ************* -->
 			
-			<div class="row <?= 1 == $b['reverse'] ? 'reverse' : '' ?>">
+			<div class="row block-style-1 <?= 1 == $b['reverse'] ? 'reverse' : '' ?>">
 				<div class="<?= 1 == $b['small'] ? 'col-6' : 'col-5' ?>">
 					<?= $b[ 'layout_content' ] ?>
 
