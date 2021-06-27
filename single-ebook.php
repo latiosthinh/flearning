@@ -9,13 +9,13 @@
 
 get_header();
 
-$type = rwmb_meta( 'horizontal', null, get_queried_object_id() );
+$type = rwmb_meta( 'horizontal', null, get_queried_object_id() ) ?: '0';
 ?>
 
 <section class="single-ebook-banner">
 	<div class="container">
 		<div class="row">
-			<div class="col-7">
+			<div class="<?= '1' == $type ? 'col-4' : 'col-7' ?>">
 				<p class="orange ttu">E-BOOK</p>
 
 				<h1 class="h2"><?= get_the_title() ?></h1>
@@ -23,8 +23,8 @@ $type = rwmb_meta( 'horizontal', null, get_queried_object_id() );
 				<?= do_shortcode( rwmb_meta( 'shortcode', null, get_queried_object_id() ) ) ?>
 			</div>
 
-			<div class="col-5 image">
-				<img src="<?= '0' === $type ? rwmb_meta( 'cover', null, get_queried_object_id() )[ 'sizes' ]['thumb-ebokk']['url'] : rwmb_meta( 'cover', null, get_queried_object_id() )[ 'sizes' ]['thumb-ebokk-h']['url'] ?>">
+			<div class="<?= '1' == $type ? 'col-8' : 'col-5 image' ?>">
+				<img src="<?= rwmb_meta( 'cover', null, get_queried_object_id() )[ 'full_url' ]?>">
 			</div>
 		</div>
 	</div>
@@ -33,8 +33,8 @@ $type = rwmb_meta( 'horizontal', null, get_queried_object_id() );
 <section class="single-ebook-content">
 	<div class="container">
 		<h3 class="h2">What’s inside</h3>
-		<div class="row">
-			<div class="col-5 image">
+		<div class="row jac">
+			<div class="<?= '1' == $type ? 'col-8' : 'col-5 image' ?>">
 				<div class="splide book-content-slider">
 					<div class="splide__track">
 						<div class="splide__list">
@@ -44,7 +44,7 @@ $type = rwmb_meta( 'horizontal', null, get_queried_object_id() );
 						foreach ( $images as $image ) :
 						?>
 						<div class="splide__slide">
-							<img src="<?= '0' === $type ? $image[ 'sizes' ]['thumb-ebokk']['url'] : $image[ 'sizes' ]['thumb-ebokk-h']['url'] ?>">
+							<img src="<?= $image[ 'full_url' ]?>">
 						</div>
 						<?php endforeach; ?>
 						</div>
@@ -61,7 +61,7 @@ $type = rwmb_meta( 'horizontal', null, get_queried_object_id() );
 				</div>
 			</div>
 
-			<div class="col-7">
+			<div class="<?= '1' == $type ? 'col-12' : 'col-7' ?>">
 				<?php the_content() ?>
 			</div>
 		</div>
