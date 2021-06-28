@@ -251,10 +251,6 @@
 			width: 1055px;
 		}
 
-		@media all and (max-width:) {
-		
-		}
-
 		@media all and (max-width:991px) {
 			top: calc( 100% + 50px );
 			width: 80px;
@@ -314,9 +310,10 @@
 
 		.bg + img {
 			position: absolute;
-			width: calc( 100% - 20px );
+			width: 80px;
+			height: 80px;
 			border-radius: 50%;
-			top: 0;
+			top: 10px;
 			left: 10px;
 			object-fit: contain;
 		}
