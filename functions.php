@@ -233,24 +233,28 @@ function novus_defer_scripts( $tag, $handle, $src ) {
 }
 
 // Remove post type splug from url
-function novus_remove_slug( $post_link, $post, $leavename ) {
-	if ( 'ebook' != $post->post_type || 'case-study' != $post->post_type || 'publish' != $post->post_status ) {
-		return $post_link;
-	}
-
-	$post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
-
-	return $post_link;
+function novus_remove_slug( $post_link, $post ) {
+    if ( 'ebook' === $post->post_type && 'publish' === $post->post_status ) {
+        $post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
+    }
+    return $post_link;
 }
-add_filter( 'post_type_link', 'novus_remove_slug', 10, 3 );
+add_filter( 'post_type_link', 'novus_remove_slug', 10, 2 );
 
-function novus_parse_request( $query ) {
-	if ( ! $query->is_main_query() || 2 != count( $query->query ) || ! isset( $query->query['page'] ) ) {
-		return;
-	}
-
-	if ( ! empty( $query->query['name'] ) ) {
-		$query->set( 'post_type', [ 'post', 'ebook', 'case-study', 'page' ] );
-	}
+function novus_add_cpt_post_names_to_main_query( $query ) {
+    // Return if this is not the main query.
+    if ( ! $query->is_main_query() ) {
+        return;
+    }
+    // Return if this query doesn't match our very specific rewrite rule.
+    if ( ! isset( $query->query['page'] ) || 2 !== count( $query->query ) ) {
+        return;
+    }
+    // Return if we're not querying based on the post name.
+    if ( empty( $query->query['name'] ) ) {
+        return;
+    }
+    // Add CPT to the list of post types WP will include when it queries based on the post name.
+    $query->set( 'post_type', [ 'post', 'page', 'ebook' ] );
 }
-add_action( 'pre_get_posts', 'novus_parse_request' );
+add_action( 'pre_get_posts', 'novus_add_cpt_post_names_to_main_query' );
