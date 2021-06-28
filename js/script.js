@@ -2,7 +2,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	const header = document.getElementById( 'masthead' );
 
 	const links = [
-		`${php_data.base_url}/wp-content/themes/flearning/style-criticle.css`,
+		// `${php_data.base_url}/wp-content/themes/flearning/style-criticle.css`,
 		`${php_data.base_url}/wp-content/themes/flearning/style-defer.css`
 	];
 

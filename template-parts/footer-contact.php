@@ -8,20 +8,16 @@
 				<p>Leave your contact information and we will be in touch <span class="orange">within 24h!</span></p>
 
 				<div class="info">
-					<a href="mailto:sales@flearningstudio.com">
-						<img src="<?= NOVUS_IMG . '/email.svg' ?>" alt="mail">
-						sales@flearningstudio.com
+					<?php
+					$infos = rwmb_meta( 'contact_info', ['object_type' => 'setting'], 'novus-settings' );
+					
+					foreach( $infos as $i ) :
+					?>
+					<a href="<?= $i['url'] ?>">
+						<img width="40" height="40" src="<?= wp_get_attachment_url( $i['icon'] ) ?>">
+						<?= $i['text'] ?>
 					</a>
-
-					<a href="tel:+84945591708">
-						<img src="<?= NOVUS_IMG . '/phone.svg' ?>" alt="phone">
-						(+84) 94 559 1708
-					</a>
-
-					<a>
-						<img src="<?= NOVUS_IMG . '/location.svg' ?>" alt="location">
-						Hanoi, Vietnam
-					</a>
+					<?php endforeach; ?>
 				</div>
 			</div>
 

@@ -518,6 +518,15 @@ function novus_metabox( $meta_boxes ) {
 				'std'  => 0
 			],
 			[
+				'name'          => 'Thumbnail background',
+				'id'            => 'bg_color',
+				'type'          => 'color',
+				'alpha_channel' => true,
+				'js_options'    => [
+					'palettes' => [ '#F7941E', '#474747', '#5766C3' ]
+				],
+			],
+			[
 				'name' => __( 'Cover', 'novus' ),
 				'id'   => $prefix . 'cover',
 				'type' => 'single_image',

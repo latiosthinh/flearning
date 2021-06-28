@@ -565,6 +565,10 @@ article {
 
 	.entry-thumbnail {
 		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
 
 		&:before {
 			content: '';
@@ -586,6 +590,12 @@ article {
 			top: 12px;
 			right: 10px;
 			font-size: 14px;
+		}
+
+		img {
+			max-height: 300px;
+			object-fit: contain;
+			width: auto;
 		}
 	}
 

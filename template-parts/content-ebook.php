@@ -1,6 +1,6 @@
 <article class="post-item">
-	<a class="entry-thumbnail" href="<?php the_permalink() ?>">
-		<?php the_post_thumbnail( 'thumb-post' ) ?>
+	<a class="entry-thumbnail" href="<?php the_permalink() ?>" style="background-color:<?= rwmb_meta( 'bg_color', null, get_the_ID() ) ?>">
+		<?php the_post_thumbnail( 'full' ) ?>
 
 		<div class="tag">Free</div>
 	</a>
