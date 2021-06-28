@@ -66,7 +66,7 @@ get_header();
 				'posts_per_page' => 3,
 				'orderby'        => 'rand',
 				'post__not_in'   => $sticky,
-				'category__in'   => [ get_the_category( get_queried_object_id() ) ]
+				'category__in'   => [ get_the_category( get_queried_object_id() )[0]->term_id ]
 			] );
 
 			while ( $related->have_posts() ) :
