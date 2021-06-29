@@ -204,7 +204,7 @@ function novus_defer_scripts( $tag, $handle, $src ) {
 
 // Remove post type splug from url
 function novus_remove_slug( $post_link, $post ) {
-    if ( 'ebook' === $post->post_type && 'publish' === $post->post_status ) {
+    if ( 'ebook' === $post->post_type || 'case-study' === $post->post_type && 'publish' === $post->post_status ) {
         $post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
     }
     return $post_link;
@@ -225,7 +225,7 @@ function novus_add_cpt_post_names_to_main_query( $query ) {
         return;
     }
     // Add CPT to the list of post types WP will include when it queries based on the post name.
-    $query->set( 'post_type', [ 'post', 'page', 'ebook' ] );
+    $query->set( 'post_type', [ 'post', 'page', 'ebook', 'case-study' ] );
 }
 add_action( 'pre_get_posts', 'novus_add_cpt_post_names_to_main_query' );
 
