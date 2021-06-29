@@ -97,6 +97,15 @@ main {
 	}
 }
 
+.single-case-study,
+.single-post {
+	main {
+		@media all and (max-width:991px) {
+			padding-top: 95px;
+		}
+	}
+}
+
 .skip-link {
 	display: none;
 }
