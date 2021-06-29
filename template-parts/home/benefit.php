@@ -52,7 +52,7 @@
 				newest animation
 				</p>
 
-				<a href="<?= get_permalink( get_page_by_path( 'our-works' )->ID ) ?>">
+				<a href="<?= get_permalink( get_page_by_path( 'educational-animation-videos-portfolio' )->ID ) ?>">
 					<img width="30" height="20" src="<?= NOVUS_IMG . '/eye.svg' ?>">
 					Our works
 				</a>
