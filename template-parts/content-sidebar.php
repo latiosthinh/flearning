@@ -3,12 +3,20 @@
 
 	<h4>Favorite post</h4>
 	<?php
-	$favs = new WP_Query( [
+	$sticky = get_option('sticky_posts');
+
+	$args_favs = [
 		'post_type'      => 'post',
 		'posts_per_page' => 3,
 		'orderby'        => 'rand',
-		'post__not_in'   => $sticky
-	] );
+		'post__not_in'   => $sticky,
+	];
+
+	if ( category_exists( 'favorite' ) ) {
+		$args_favs[ 'category_name' ] = 'favorite';
+	}
+
+	$favs = new WP_Query( $args_favs );
 
 	while ( $favs->have_posts() ) :
 		$favs->the_post();
@@ -19,12 +27,18 @@
 
 	<h4>Trending now</h4>
 	<?php
-	$trends = new WP_Query( [
+	$args_trend = [
 		'post_type'      => 'post',
 		'posts_per_page' => 3,
 		'orderby'        => 'rand',
-		'post__not_in'   => $sticky
-	] );
+		'post__not_in'   => $sticky,
+	];
+
+	if ( category_exists( 'trending' ) ) {
+		$args_trend[ 'category_name' ] = 'trending';
+	}
+
+	$trends = new WP_Query( $args_trend );
 
 	while ( $trends->have_posts() ) :
 		$trends->the_post();
