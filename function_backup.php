@@ -8,7 +8,7 @@
  */
 
 if ( ! defined( 'NOVUS_VERSION' ) ) {
-	define( 'NOVUS_VERSION', '1.6.8' );
+	define( 'NOVUS_VERSION', '1.0.5' );
 	define( 'NOVUS_IMG', get_template_directory_uri() . '/images' );
 	define( 'NOVUS_JS', get_template_directory_uri() . '/js' );
 	define( 'NOVUS_ASSETS', get_template_directory_uri() . '/assets' );
@@ -90,17 +90,15 @@ add_action( 'widgets_init', 'novus_widgets_init' );
 
 function novus_scripts() {
 	// Dequeue
-	// if ( is_front_page() || is_singular() || is_archive() ) {
-	// 	wp_deregister_script( 'heartbeat' );
-	// 	wp_deregister_script( 'wp-polyfill' );
-	// }
+	wp_deregister_script( 'heartbeat' );
+	wp_deregister_script( 'wp-polyfill' );
 
 	wp_dequeue_style( 'wp-block-library' );
 	wp_dequeue_style( 'wp-block-library-theme' );
 	wp_dequeue_style( 'wc-block-style' );
 	wp_dequeue_style( 'contact-form-7' );
 
-	if ( ! is_front_page() && ! is_admin() ) {
+	if ( ! is_front_page() ) {
 		wp_enqueue_style( 'novus-choice', 'https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css', [], NOVUS_VERSION );
 		wp_enqueue_script( 'novus-choice', 'https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js', [], NOVUS_VERSION, true );
 	}
@@ -129,6 +127,38 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/metabox.php';
 // require get_template_directory() . '/inc/compress.php';
 
+if ( defined( 'JETPACK__VERSION' ) ) {
+	require get_template_directory() . '/inc/jetpack.php';
+}
+
+add_action( 'wp_ajax_novus_get_posts', 'novus_get_posts' );
+add_action( 'wp_ajax_nopriv_novus_get_posts', 'novus_get_posts' );
+function novus_get_posts() {
+	$nonce = $_POST[ 'nonce' ];
+
+	if ( ! wp_verify_nonce( $nonce, 'ajax-nonce' ) ) {
+		wp_die( 'Nonce value cannot be verified.' );
+	}
+
+	if ( isset( $_REQUEST ) ) {
+		$posts = new WP_Query( [
+			'post_type'      => 'post',
+			'posts_per_page' => 4,
+			'offset'         => $_REQUEST[ 'offset' ],
+		] );
+
+		if ( $posts->have_posts() ) :
+			while ( $posts->have_posts() ) : $posts->the_post();
+				echo get_template_part( 'template-parts/post' );
+			endwhile;
+		else :
+			echo '<p>No posts found!!</p>';
+		endif;
+	}
+
+	wp_die();
+}
+
 add_action( 'pre_get_posts', 'gem_post_type_archive' );
 function gem_post_type_archive( $query ) {
 	if ( is_admin() || ! $query->is_main_query() ) {
@@ -148,7 +178,7 @@ function gem_post_type_archive( $query ) {
 	// }
 }
 
-Customize mce editor font sizes
+// Customize mce editor font sizes
 if ( ! function_exists( 'wpex_mce_text_sizes' ) ) {
 	function wpex_mce_text_sizes( $initArray ){
 		$initArray['fontsize_formats'] = "9px 10px 12px 13px 14px 16px 18px 21px 24px 28px 32px 36px";

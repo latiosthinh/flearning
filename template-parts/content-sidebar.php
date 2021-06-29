@@ -44,7 +44,9 @@
 	<?php endforeach; ?>
 
 	<div class="ebook-download">
-		<img src="<?= NOVUS_IMG . '/ebook-download.jpg' ?>">
-		<a href="<?= get_post_type_archive_link( 'ebook' ) ?>" class="button-5">Download now</a>
+		<?php
+		$shortcode = rwmb_meta( 'sidebar_shortcode', ['object_type' => 'setting'], 'novus-settings' );
+		echo do_shortcode($shortcode );
+		?>
 	</div>
 </div>

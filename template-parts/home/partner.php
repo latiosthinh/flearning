@@ -11,8 +11,8 @@
 					foreach ( $partners as $p ) :
 					?>
 						<div class="splide__slide">
-							<!-- <img src="<?= $p[ 'sizes' ][ 'thumb-partner' ][ 'url' ] ?>"> -->
-							<img src="<?= $p[ 'full_url' ] ?>">
+							<img src="<?= $p[ 'sizes' ][ 'thumb-partner' ][ 'url' ] ?>">
+							<!-- <img src="<?= $p[ 'full_url' ] ?>"> -->
 						</div>
 					<?php endforeach; ?>
 				</div>

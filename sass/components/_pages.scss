@@ -278,7 +278,6 @@ article {
 
 	.entry-thumbnail {
 		display: block;
-		overflow: hidden;
 		
 		&:hover {
 			img {
@@ -306,10 +305,18 @@ article {
 	.entry-thumbnail {
 		@media all and (max-width:1439px) {
 			max-height: 200px;
+
+			img {
+				max-height: 200px;
+			}
 		}
 
 		@media all and (max-width:991px) {
 			max-height: 300px;
+
+			img {
+				max-height: 300px;
+			}
 		}
 	}
 
@@ -379,19 +386,6 @@ article {
 		padding-top: 80px;
 		margin-top: 80px;
 		clear: both;
-		position: relative;
-
-		a {
-			position: absolute;
-			bottom: 4%;
-			left: 50%;
-			transform: translateX(-50%);
-		}
-
-		img {
-			border-radius: 48px;
-			@extend %shadow;
-		}
 	}
 }
 
@@ -569,6 +563,8 @@ article {
 		align-items: center;
 		justify-content: center;
 		width: 100%;
+		max-height: unset;
+		height: 250px;
 
 		&:before {
 			content: '';
@@ -593,9 +589,9 @@ article {
 		}
 
 		img {
-			max-height: 300px;
+			max-height: 200px;
+			max-width: 250px;
 			object-fit: contain;
-			width: auto;
 		}
 	}
 

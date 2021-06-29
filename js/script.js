@@ -6,20 +6,41 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		`${php_data.base_url}/wp-content/themes/flearning/style-defer.css`
 	];
 
-	links.forEach( l => {
-		const link = document.createElement( 'link' );
+	if ( header ) {
+		links.forEach( l => {
+			const link = document.createElement( 'link' );
 
-		link.rel  = 'stylesheet';
-		link.href = l
+			link.rel  = 'stylesheet';
+			link.href = l
 
-		header.appendChild( link );
-	} )
+			header.appendChild( link );
+		} )
+	}
 
 	const scriptTag = document.createElement('script');
     scriptTag.src = `${php_data.base_url}/wp-content/themes/flearning/js/splide.js`;
     document.body.appendChild( scriptTag );
 
 	if ( window.innerWidth > 992 ) {
+		const blob = document.querySelector( '.blob-wrapper' )
+		
+		if ( blob ) {
+			blob.innerHTML += `<div class="blob blob-1"></div>
+			<div class="blob blob-2"></div>
+			<div class="blob blob-3"></div>
+			<div class="blob blob-4"></div>
+			<div class="blob blob-5"></div>
+			<div class="blob blob-6"></div>
+			<div class="blob blob-7"></div>
+			<div class="blob blob-8"></div>
+			<div class="blob blob-9"></div>
+			<div class="blob blob-10"></div>
+			<div class="blob blob-11"></div>
+			<div class="blob blob-12"></div>
+			<div class="blob blob-13"></div>
+			<div class="blob blob-14"></div>`;
+		}
+
 		window.addEventListener( 'scroll', function() {
 			if ( window.scrollY > 20 ) {
 				header.classList.add( 'fixed' );
@@ -30,9 +51,11 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	}
 
 	const navControl = document.getElementById( 'nav-control' );
-	navControl.addEventListener( 'click', function() {
-		header.classList.contains( 'nav-mobile' ) ? header.classList.remove( 'nav-mobile' ) : header.classList.add( 'nav-mobile' )
-	} )
+	if ( navControl ) {
+		navControl.addEventListener( 'click', function() {
+			header.classList.contains( 'nav-mobile' ) ? header.classList.remove( 'nav-mobile' ) : header.classList.add( 'nav-mobile' )
+		} )
+	}
 
 	// Tab
 	const tabHandler = ( links, panels ) => {

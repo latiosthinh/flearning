@@ -235,6 +235,11 @@
 		@media all and (max-width:991px) {
 			max-width: 100%;
 		}
+
+		img {
+			height: unset;
+			width: unset;
+		}
 	}
 
 	.splide__arrows {

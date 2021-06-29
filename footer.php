@@ -56,22 +56,7 @@
 
 <?php wp_footer(); ?>
 
-<section class="blob-wrapper">
-	<div class="blob blob-1"></div>
-	<div class="blob blob-2"></div>
-	<div class="blob blob-3"></div>
-	<div class="blob blob-4"></div>
-	<div class="blob blob-5"></div>
-	<div class="blob blob-6"></div>
-	<div class="blob blob-7"></div>
-	<div class="blob blob-8"></div>
-	<div class="blob blob-9"></div>
-	<div class="blob blob-10"></div>
-	<div class="blob blob-11"></div>
-	<div class="blob blob-12"></div>
-	<div class="blob blob-13"></div>
-	<div class="blob blob-14"></div>
-</section>
+<section class="blob-wrapper"></section>
 
 <div class="popup"></div>
 <div class="popup-bg popup-close"></div>
