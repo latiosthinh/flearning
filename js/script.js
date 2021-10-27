@@ -147,12 +147,25 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		} )
 	}
 
-	// Back to top
-	const backToTop = document.querySelector( '#back-to-top' )
-	if ( backToTop ) {
-		backToTop.addEventListener( 'click', function() {
-			window.scroll({top: 0, left: 0, behavior: 'smooth'});
+	// Search header
+	const searchControl = document.getElementById( 'search-control' );
+	const searchClose   = document.getElementById( 'btn-search-close' );
+	const searchWraper  = document.querySelector( '.header-search__wrapper' );
+
+	if ( searchControl ) {
+		searchControl.addEventListener( 'click', () => {
+			searchWraper.classList.add( 'search--open' );
 		} )
+	
+		searchClose.addEventListener( 'click', () => {
+			searchWraper.classList.remove( 'search--open' );
+		} )
+	
+		document.addEventListener( 'keydown', e => {
+			if (e.keyCode == 27) {
+				searchWraper.classList.remove( 'search--open' );
+			}
+		})
 	}
 
 	// Select

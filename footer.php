@@ -54,6 +54,8 @@
 
 </main>
 
+<?php get_template_part( 'template-parts/content', 'searchform' ) ?>
+
 <?php wp_footer(); ?>
 
 <section class="blob-wrapper"></section>
